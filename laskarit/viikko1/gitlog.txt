@@ -1,0 +1,126 @@
+commit 07c93fead89a524f67aea1dab9ddfc4f46083efc
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:39:13 2019 +0200
+
+    poistettiin file1 ja nimettiin file2 uudestaan
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b0ce3ff0cca6fafc47fe402dc2f9514c91d5be0a
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:34:47 2019 +0200
+
+    Luotiin kansio ja tiedostot
+
+ eka.txt              | 12 ++++++++++++
+ tiedostoja/file1.txt |  0
+ tiedostoja/file2.txt |  0
+ tiedostoja/file3.txt |  0
+ 4 files changed, 12 insertions(+)
+
+commit 126189b39f25f092040cbe3f0d8320cdd2619f12
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:34:19 2019 +0200
+
+    Luotiin kansio ja tiedostot
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ed879019fc808d4b79f996b8d336200a8f23dfad
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:28:50 2019 +0200
+
+    vaihdettiin nimi
+
+ tiedosto.txt | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+commit 3dc65f0f1f29b44ace675e52bbfa93c3c5072595
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:25:52 2019 +0200
+
+    poistettiin toinen.txt
+    
+    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham
+    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 37fdae3ac04eab98902a5c251ada08918012bc2d
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:23:32 2019 +0200
+
+    poistettiin tekstiä
+
+ tiedosto.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit e384f7cc30869c487d350e7fb4377a5c27c61503
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:23:06 2019 +0200
+
+    lisättiin tiedostoon tekstiä
+
+ tiedosto.txt | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit b4fbf1ed78432e46b01a585272e7bbc7b1d6452d
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:15:54 2019 +0200
+
+     luotiin stuff kansio ja jotain.txt
+
+ stuff/jotain.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d22ae3bd4b06f73cb022b742c8da4064dc59eebd
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:15:12 2019 +0200
+
+    muokattiin toista ja kolmatta tiedostoa
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 3c79230d5adb49c9d260a0c691e0a5032086fa68
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:14:34 2019 +0200
+
+    luotiin toinen.txt
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 79315a6d1584ce1800e7ab45c8959f5e2250843c
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:13:54 2019 +0200
+
+    luotiin kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a5beaa0c1daf64c524d8d2cd910036d2ddddbc42
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:13:04 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit b6c942bae756b729e4f5d971187d3c7359db7efa
+Author: uberballo <kasper.paavolainen@helsinki.fi>
+Date:   Wed Mar 13 13:10:50 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+paavokas@melkki:~/kurssit/_ot2019/ot_viikko1$ 
+
