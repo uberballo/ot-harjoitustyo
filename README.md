@@ -5,6 +5,6 @@ _made in java_
 
 ## Tehtävät  
 **Viikko1**  
-[Komentorivi.txt](https://github.com/uberballo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+[Komentorivi.txt](https://github.com/uberballo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)  
 [Gitlog.txt](https://github.com/uberballo/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
