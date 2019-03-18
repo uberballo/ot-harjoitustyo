@@ -1,10 +1,7 @@
-# Ohjelmistotekniikan projekti
+# työaikakirjanpito
 
-The project itself is still to-be announced. Hopefully something **cool**
-_made in java_  
-
-## Tehtävät  
-**Viikko1**  
-[Komentorivi.txt](https://github.com/uberballo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)  
-[Gitlog.txt](https://github.com/uberballo/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
+| päivä | aika | mitä tein  |
+| :----:|:-----| :-----|
+| 15.3 | 2    | Suunniteltiin Luolastojen generaatiota |
+| 16.3 | 1 | |
+| 17.3 |2    | Luotiin ensinmäinen versio luola-algoritmista|
