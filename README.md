@@ -1,7 +1,9 @@
-# Ohjelmistotekniikan projekti
+#Dungeon crawler-like 
 
-The project itself is still to-be announced. Hopefully something **cool**
-_made in java_  
+Dungeon crawler-like game. Game where the player has to navigate trough procedurally generated map. Avoiding obstacles and collecting prizes along the way.
+
+## Dokumentaatio
+[Tuntikirjanpito](https://github.com/uberballo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Tehtävät  
 **Viikko1**  
