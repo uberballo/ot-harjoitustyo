@@ -3,7 +3,8 @@
 Dungeon crawler-like game. Game where the player has to navigate trough procedurally generated map. Avoiding obstacles and collecting prizes along the way.
 
 ## Documentation 
-[Timesheet](https://github.com/uberballo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Timesheet](https://github.com/uberballo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)  
+[Software requirements specification](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/SoftwareRequirementsSpecifications.md)
 
 ## Exercises 
 **week 1**  
