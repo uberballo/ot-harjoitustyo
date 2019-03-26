@@ -19,6 +19,6 @@ You don't have to log in, but if you don't, you can't save your high score.
  - Graphic elements for the game. Sprites to represent the character and walls. 
  - High score list, giving players bragging rights.
 
-- Maybe implemented:
+- Maybe implemented: 
  - Treasuers that will give the player more points.
  - Enemies that can or will stop the player.
