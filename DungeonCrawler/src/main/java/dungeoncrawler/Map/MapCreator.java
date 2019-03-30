@@ -3,27 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.dungeoncrawler.map;
+package dungeoncrawler.Map;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author kasper
  */
-
-import java.util.Random;
-
-
-
 public class MapCreator {
 
 	private int x;
 	private int y;
 	private int[][] map;
+	private int numberOfRooms = 6;
 	private Random random = new Random();
 	private Room LastRoom;
 	private Room[] rooms;
-	
-	private int numberOfRooms = 6;
 
 	public MapCreator(int y, int x) {
 
@@ -53,6 +50,10 @@ public class MapCreator {
 
 	}
 
+	public int[][] getMap(){
+		return this.map;
+	}
+
 	public void print() {
 		for (int i = 0; i < y; i++) {
 			for (int i2 = 0; i2 < x; i2++) {
@@ -66,16 +67,16 @@ public class MapCreator {
 	public void produceRandomRooms() {
 		int now = 1;
 		while (now < numberOfRooms) {
-
+			
 			int y = random.nextInt(this.y);
 			int x = random.nextInt(this.x);
-			int y1 = random.nextInt(this.y - y) + 1;
-			int x1 = random.nextInt(this.y - y) + 1;
-
-			Room newRoom = createRoom(y, x, x1, x1);
-
+			int y1 = random.nextInt(this.y - y)+1;
+			int x1 = random.nextInt(this.y - y)+1;
+			
+			Room newRoom =createRoom(y, x, x1, x1); 
+			
 			if (addRoom(newRoom)) {
-				rooms[now] = newRoom;
+				rooms[now]= newRoom;
 				now++;
 			}
 		}
@@ -103,10 +104,10 @@ public class MapCreator {
 				}
 			}
 			//Build a hallway between the last room and the new room
-			if (random.nextInt(1) == 1) {
+			if (random.nextInt(1)==1){
 				createHorizontalTunnel(LastRoom.x1, newRoom.x1, LastRoom.y1);
 				createVerticalTunnel(LastRoom.y1, newRoom.y1, newRoom.x1);
-			} else {
+			}else{
 				createVerticalTunnel(LastRoom.y1, newRoom.y1, LastRoom.x1);
 				createHorizontalTunnel(LastRoom.x1, newRoom.x1, newRoom.y1);
 			}
@@ -116,14 +117,14 @@ public class MapCreator {
 		}
 	}
 
-	public void createVerticalTunnel(int y1, int y2, int x) {
-		for (int y = Math.min(y1, y2); y < Math.max(y1, y2); y++) {
+	public void createVerticalTunnel(int y1, int y2,int x){
+		for (int y = Math.min(y1, y2); y<Math.max(y1, y2);y++){
 			map[y][x] = 1;
 		}
 	}
 
-	public void createHorizontalTunnel(int x1, int x2, int y) {
-		for (int x = Math.min(x1, x2); x < Math.max(x1, x2); x++) {
+	public void createHorizontalTunnel(int x1, int x2, int y){
+		for (int x = Math.min(x1, x2); x<Math.max(x1, x2);x++){
 			map[y][x] = 1;
 		}
 	}
