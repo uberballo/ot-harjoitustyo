@@ -15,9 +15,9 @@ public class Map {
 	private int y;
 	private int x;
 	
-	public Map(){
-		this.y = 30;
-		this.x = 30;
+	public Map(int y, int x){
+		this.y = y;
+		this.x = x;
 		MapCreator mapCreator = new MapCreator(y, x);
 		this.map = mapCreator.getMap();
 	}

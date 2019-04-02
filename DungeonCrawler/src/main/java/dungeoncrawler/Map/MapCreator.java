@@ -24,8 +24,6 @@ public class MapCreator {
 
 	public MapCreator(int y, int x) {
 
-		for (int a = 0; a < 100; a++) {
-		}
 
 		this.x = x;
 		this.y = y;
@@ -99,12 +97,12 @@ public class MapCreator {
 			System.out.println(newRoom);
 			//add the room to the map
 			for (int i = newRoom.y1; i < newRoom.y2; i++) {
-				for (int i2 = newRoom.x1; i2 < newRoom.y2; i2++) {
+				for (int i2 = newRoom.x1; i2 < newRoom.x2; i2++) {
 					map[i][i2] = 1;
 				}
 			}
 			//Build a hallway between the last room and the new room
-			if (random.nextInt(1)==1){
+			if (random.nextInt(2)==0){
 				createHorizontalTunnel(LastRoom.x1, newRoom.x1, LastRoom.y1);
 				createVerticalTunnel(LastRoom.y1, newRoom.y1, newRoom.x1);
 			}else{
