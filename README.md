@@ -22,3 +22,10 @@ mvn jacoco:report
 ```
 Test coverage report can be found from target/site/jacoco/index.html
 
+### Generating .jar file
+
+command
+```
+mvn package
+```
+generates executable .jar file to the _target_ folder. You may have to give permission to execute the file.
