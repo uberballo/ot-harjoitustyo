@@ -54,13 +54,17 @@ public class DungeonCrawlerUi extends Application{
 			
 			System.out.println(System.getProperty("user.dir"));
 			
-			Image seina = new Image(new File("src/main/resources/seina.png").toURI().toString());
+			Image floor = new Image(new File("src/main/resources/floor.png").toURI().toString());
+			Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
 			
+			//currently dimensions aren't correct. But still gives a view of the map.
 			for (int i =0;i<map.getY();i++){
 				for (int j = 0; j<map.getX();j++){
-					if(currentMap[i][j]==1)
-					gc.drawImage(seina, i*7, j*7);
-					
+					if(currentMap[i][j]==1){
+					gc.drawImage(floor , i*7, j*7);
+					}else{
+					gc.drawImage(wall, i*7, j*7);
+					}
 					
 				}
 			} 
