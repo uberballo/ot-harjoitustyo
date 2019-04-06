@@ -56,6 +56,7 @@ public class DungeonCrawlerUi extends Application{
 			
 			Image floor = new Image(new File("src/main/resources/floor.png").toURI().toString());
 			Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
+			Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
 			
 			//currently dimensions aren't correct. But still gives a view of the map.
 			for (int i =0;i<map.getY();i++){
@@ -68,7 +69,8 @@ public class DungeonCrawlerUi extends Application{
 					
 				}
 			} 
-			//gc.drawImage(seina, 180, 100);
+			
+			gc.drawImage(character,100,100);
 			
 			
 			stage.show();
