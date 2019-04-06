@@ -9,10 +9,18 @@ import dungeoncrawler.Map.Map;
 import java.io.File;
 import javafx.scene.image.Image;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 /**
  *
@@ -22,6 +30,7 @@ public class DungeonCrawlerUi extends Application{
 	
 		private Map map;
 		private int[][] currentMap;
+		private Stage stage;
 		//Currently doesn't have any functionality. Only initializes a map.
 		
 		 public static void main(String[] args) {
@@ -29,7 +38,7 @@ public class DungeonCrawlerUi extends Application{
     }
 	
 		public DungeonCrawlerUi(){
-			this.map = new Map(160,100);
+			this.map = new Map(80,80,10);
 			currentMap = map.getMap();
 			for (int i =0;i<map.getY();i++){
 				for (int j = 0; j<map.getX();j++){
@@ -41,11 +50,41 @@ public class DungeonCrawlerUi extends Application{
 		}
 
 		public void start(Stage stage){
+			this.stage = stage;
+			Scene gameScene = gameScreen();
+			Scene startScene = startScreen(gameScene);
+		
+			stage.setTitle("Dungeon Crawler");
+			stage.setScene(startScene);
+			stage.show();
+		}
+
+
+		public Scene startScreen(Scene gameScene){
+			GridPane grid = new GridPane();
+			grid.setAlignment(Pos.CENTER);
+			Scene scene = new Scene(grid,1280,800);
+			
+			Text title = new Text("Dungeon Crawler");
+			title.setFont(Font.font("Comic Sansa",FontWeight.NORMAL,20));
+			grid.add(title,0,0,2,1);
+
+			Button button = new Button("Play");
+			grid.add(button, 1, 1);
+			
+			button.setOnAction(new EventHandler<ActionEvent>() {
+    @Override public void handle(ActionEvent e) {
+			stage.setScene(gameScene);
+	}
+	});
+		
+			return scene;
+		}
+
+		public Scene gameScreen(){
 			Group root = new Group();
 			Scene scene = new Scene(root);
 
-			stage.setScene(scene);
-			stage.setTitle("Dungeon crawler");
 
 			Canvas canvas = new Canvas(1280,800);
 			root.getChildren().add(canvas);
@@ -62,18 +101,17 @@ public class DungeonCrawlerUi extends Application{
 			for (int i =0;i<map.getY();i++){
 				for (int j = 0; j<map.getX();j++){
 					if(currentMap[i][j]==1){
-					gc.drawImage(floor , i*7, j*7);
+					gc.drawImage(floor , i*16, j*10);
 					}else{
-					gc.drawImage(wall, i*7, j*7);
+					gc.drawImage(wall, i*16, j*10);
 					}
 					
 				}
 			} 
 			
-			gc.drawImage(character,100,100);
+			gc.drawImage(character,40*16,40*10);
 			
-			
-			stage.show();
+			return scene;		
 
 				
 		}

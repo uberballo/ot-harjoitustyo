@@ -17,13 +17,13 @@ public class MapCreator {
 	private int x;
 	private int y;
 	private int[][] map;
-	private int numberOfRooms = 6;
+	private int numberOfRooms;
 	private Random random = new Random();
 	private Room LastRoom;
 	private Room[] rooms;
 
-	public MapCreator(int y, int x) {
-
+	public MapCreator(int y, int x, int numberOfRooms) {
+		this.numberOfRooms=numberOfRooms;
 
 		this.x = x;
 		this.y = y;

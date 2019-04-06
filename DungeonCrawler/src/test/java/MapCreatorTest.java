@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class MapCreatorTest {
 	
 
-	MapCreator mapCreator = new MapCreator(30, 30);
+	MapCreator mapCreator = new MapCreator(80, 80,10);
 	public MapCreatorTest() {
 	}
 	
