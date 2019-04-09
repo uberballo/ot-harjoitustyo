@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dungeoncrawler.Map;
+package map;
 
 /**
  *
@@ -14,24 +14,24 @@ public class Map {
 	private int[][] map;
 	private int y;
 	private int x;
-	
-	public Map(int y, int x, int rooms){
+
+	public Map(int y, int x, int rooms) {
 		this.y = y;
 		this.x = x;
 		MapCreator mapCreator = new MapCreator(y, x, rooms);
 		this.map = mapCreator.getMap();
 	}
 
-	public int[][] getMap(){
+	public int[][] getMap() {
 		return this.map;
 	}
 
-	public int getX(){
+	public int getX() {
 		return this.x;
 	}
 
-	public int getY(){
+	public int getY() {
 		return this.y;
 	}
-	
+
 }
