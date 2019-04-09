@@ -53,13 +53,12 @@ public class DungeonCrawlerUi extends Application {
 
 		stage.setTitle("Dungeon Crawler");
 		stage.setScene(startScene);
-		
 
 		//Character movement but doesnt work. Only prints out your press
 		ArrayList<String> input = new ArrayList<String>();
 
 		gameScene.setOnKeyPressed(
-				new EventHandler<KeyEvent>() {
+				  new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				String code = e.getCode().toString();
 				System.out.println(code);
@@ -67,6 +66,7 @@ public class DungeonCrawlerUi extends Application {
 				if (!input.contains(code)) {
 					input.add(code);
 				}
+
 			}
 		});
 
