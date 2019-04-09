@@ -53,32 +53,31 @@ public class DungeonCrawlerUi extends Application {
 
 		stage.setTitle("Dungeon Crawler");
 		stage.setScene(startScene);
-
-		ArrayList<String> input = new ArrayList<String>();
 		
+
+		//Character movement but doesnt work. Only prints out your press
+		ArrayList<String> input = new ArrayList<String>();
+
 		gameScene.setOnKeyPressed(
-            new EventHandler<KeyEvent>()
-            {
-                public void handle(KeyEvent e)
-                {
-                    String code = e.getCode().toString();
-					System.out.println(code);
- 
-                    if ( !input.contains(code) )
-                        input.add( code );
-                }
-            });
- 
-        gameScene.setOnKeyReleased(
-            new EventHandler<KeyEvent>()
-            {
-                public void handle(KeyEvent e)
-                {
-                    String code = e.getCode().toString();
-                    input.remove( code );
-					System.out.println(code);
-                }
-            });
+				new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent e) {
+				String code = e.getCode().toString();
+				System.out.println(code);
+
+				if (!input.contains(code)) {
+					input.add(code);
+				}
+			}
+		});
+
+		gameScene.setOnKeyReleased(
+				new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent e) {
+				String code = e.getCode().toString();
+				input.remove(code);
+				System.out.println(code);
+			}
+		});
 		stage.show();
 	}
 
@@ -118,7 +117,6 @@ public class DungeonCrawlerUi extends Application {
 		Image floor = new Image(new File("src/main/resources/floor.png").toURI().toString());
 		Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
 		Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
- 
 
 		//currently dimensions aren't correct. But still gives a view of the map.
 		for (int i = 0; i < map.getY(); i++) {
