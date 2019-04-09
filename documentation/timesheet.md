@@ -8,4 +8,5 @@
 | 21.3 | 1 | Studied JavaFX|
 | 26.3 | 1 | Improved documents|
 |2.4|2| Added graphics, improved algorithm|
-|Total|9|
+|9.4|2|Added package for game logic, updated tests and minor documents|
+|Total|11|
