@@ -13,11 +13,11 @@ import map.Map;
  */
 public class Game {
 
-	int currentY;
-	int currentX;
+	private int currentY;
+	private int currentX;
 
-	Map map;
-	int[][] currentMap;
+	private Map map;
+	private int[][] currentMap;
 
 	public Game(int y, int x, int rooms, int playerStartY, int playerStartX) {
 
@@ -25,10 +25,18 @@ public class Game {
 		this.currentMap = map.getMap();
 		this.currentY = playerStartY;
 		this.currentX = playerStartX;
-		currentMap[playerStartY][playerStartX] = 2;
+		this.currentMap[playerStartY][playerStartX] = 2;
 	}
 
-	public void moveCharacterUp() {
+	public int[][] getMap(){
+		return this.currentMap;
+	}
+	
+	public void printLocation(){
+		System.out.println("Current x, y :"+currentX+" "+currentY);
+	}
+
+	public void moveCharacterRight() {
 		if (currentMap[currentY + 1][currentX] == 1) {
 			currentY++;
 			currentMap[currentY][currentX] = 2;
@@ -36,7 +44,7 @@ public class Game {
 		}
 	}
 
-	public void moveCharacterDown() {
+	public void moveCharacterLeft() {
 		if (currentMap[currentY - 1][currentX] == 1) {
 			currentY--;
 			currentMap[currentY][currentX] = 2;
@@ -44,7 +52,7 @@ public class Game {
 		}
 	}
 
-	public void moveCharacterRight() {
+	public void moveCharacterDown() {
 		if (currentMap[currentY][currentX + 1] == 1) {
 			currentX++;
 			currentMap[currentY][currentX] = 2;
@@ -52,7 +60,7 @@ public class Game {
 		}
 	}
 
-	public void moveCharacterLeft() {
+	public void moveCharacterUp() {
 		if (currentMap[currentY][currentX - 1] == 1) {
 			currentX--;
 			currentMap[currentY][currentX] = 2;
