@@ -5,7 +5,7 @@ Dungeon crawler-like game. Game where the player has to navigate trough procedur
 ## Documentation 
 [Timesheet](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/timesheet.md)  
 [Software requirements specification](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/SoftwareRequirementsSpecifications.md)  
-[Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/pictures/architecture.png)
+[Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)
 
 ## Command line functions
 ### Testing
