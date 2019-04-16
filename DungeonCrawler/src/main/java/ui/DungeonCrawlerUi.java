@@ -41,7 +41,12 @@ public class DungeonCrawlerUi extends Application {
 	private int mapWidth;
 	private Scene gameScene;
 	private Group root;
-	//Currently doesn't have any functionality. Only initializes a map.
+
+	private Image floor = new Image("floor.png");
+	private	Image wall = new Image("wall.png");
+	private	Image character = new Image("character.png");
+
+	//Currently very ugly code. Needs to be refactored
 
 	public static void main(String[] args) {
 		launch(args);
@@ -66,12 +71,12 @@ public class DungeonCrawlerUi extends Application {
 		stage.setTitle("Dungeon Crawler");
 		stage.setScene(startScene);
 
-		ArrayList<String> input = new ArrayList<>();	
-		
+		ArrayList<String> input = new ArrayList<>();
+
 		gameScene.setOnKeyPressed(event -> {
 			String code = event.getCode().toString();
 
-			if (!input.contains(code)){
+			if (!input.contains(code)) {
 				input.add(code);
 			}
 		});
@@ -89,17 +94,16 @@ public class DungeonCrawlerUi extends Application {
 				if (input.contains("W")) {
 					game.moveCharacterUp();
 					drawScreen();
-					input.remove(("W"));}
-				else if (input.contains("A")) 
-				{
+					input.remove(("W"));
+				} else if (input.contains("A")) {
 					game.moveCharacterLeft();
 					drawScreen();
 					input.remove(("A"));
-				} else if (input.contains("S")){
+				} else if (input.contains("S")) {
 					game.moveCharacterDown();
 					drawScreen();
 					input.remove(("S"));
-				}else if (input.contains("D")){
+				} else if (input.contains("D")) {
 					game.moveCharacterRight();
 					drawScreen();
 					input.remove(("D"));
@@ -122,24 +126,21 @@ public class DungeonCrawlerUi extends Application {
 				} else {
 					game.printLocation();
 				}
-*/
+				 */
 			}
 		}.start();
 
 		stage.show();
 	}
 
-	public void drawScreen(){
+	public void drawScreen() {
 
 		Canvas canvas = new Canvas(1280, 800);
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 
-		System.out.println(System.getProperty("user.dir"));
+		//System.out.println(System.getProperty("user.dir"));
 
-		Image floor = new Image(new File("src/main/resources/floor.png").toURI().toString());
-		Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
-		Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
 
 		//currently dimensions aren't correct. But still gives a view of the map.
 		for (int i = 0; i < this.mapHeight; i++) {
@@ -189,12 +190,16 @@ public class DungeonCrawlerUi extends Application {
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 
-		System.out.println(System.getProperty("user.dir"));
+		/*
+		Image floor = new Image("floor.png");
+		Image wall = new Image("wall.png");
+		Image character = new Image("character.png");
+*/
 
-		Image floor = new Image(new File("src/main/resources/floor.png").toURI().toString());
-		Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
-		Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
-
+		//System.out.println(System.getProperty("user.dir"));
+		//Image floor = new Image(new File("main/images/floor.png").toURI().toString());
+		//Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
+		//Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
 		//currently dimensions aren't correct. But still gives a view of the map.
 		for (int i = 0; i < this.mapHeight; i++) {
 			for (int j = 0; j < this.mapWidth; j++) {
