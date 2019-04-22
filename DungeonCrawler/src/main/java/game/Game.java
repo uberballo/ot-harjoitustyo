@@ -28,7 +28,17 @@ public class Game {
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
-		this.score=0;
+		this.score=1000;
+	}
+	public void setScore(int x){
+		this.score = x;
+	}
+
+	public void increaseScore(){
+		this.score++;
+	}
+	public void decreaseScore(){
+		this.score--;
 	}
 
 	public int[][] getMap(){
@@ -41,6 +51,11 @@ public class Game {
 	public int getTotalScore(){
 		return this.totalScore;
 	}
+
+	public int getSumScore(){
+		return this.totalScore+this.score;
+	}
+
 	
 	public void printLocation(){
 		System.out.println("Current x, y :"+currentX+" "+currentY);
@@ -51,6 +66,7 @@ public class Game {
 			currentY++;
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY - 1][currentX] = 1;
+			decreaseScore();
 		}
 	}
 
@@ -59,6 +75,7 @@ public class Game {
 			currentY--;
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY + 1][currentX] = 1;
+			decreaseScore();
 		}
 	}
 
@@ -67,6 +84,7 @@ public class Game {
 			currentX++;
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX - 1] = 1;
+			decreaseScore();
 		}
 	}
 
@@ -75,6 +93,7 @@ public class Game {
 			currentX--;
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX + 1] = 1;
+			decreaseScore();
 		}
 	}
 

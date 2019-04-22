@@ -116,37 +116,6 @@ public class DungeonCrawlerUi extends Application {
 		stage.show();
 	}
 
-	public void drawScreen() {
-
-		Canvas canvas = new Canvas(1280, 800);
-
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-
-		//System.out.println(System.getProperty("user.dir"));
-
-		
-		for (int i = 0; i < this.mapHeight; i++) {
-			for (int j = 0; j < this.mapWidth; j++) {
-				if (currentMap[i][j] == 1) {
-					gc.drawImage(floor, i * 16, j * 10);
-				} else if (currentMap[i][j] == 2) {
-					gc.drawImage(floor, i * 16, j * 10);
-					gc.drawImage(character, i * 16, j * 10);
-				} else {
-					gc.drawImage(wall, i * 16, j * 10);
-				}
-
-			}
-		}
-
-		gc.setTextAlign(TextAlignment.LEFT);
-		gc.setFont(new Font("Comic sans",25));
-		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: "+game.getTotalScore(), 10, 40);
-
-		this.root.getChildren().clear();
-		this.root.getChildren().add(canvas);
-	}
 
 	public Scene startScreen(Scene gameScene) {
 		GridPane grid = new GridPane();
@@ -171,7 +140,7 @@ public class DungeonCrawlerUi extends Application {
 
 		return scene;
 	}
-
+	
 	public void gameScreen() {
 		Scene scene = new Scene(this.root);
 
@@ -197,8 +166,39 @@ public class DungeonCrawlerUi extends Application {
 		gc.setTextAlign(TextAlignment.LEFT);
 		gc.setFont(new Font("Comic sans",25));
 		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: "+game.getTotalScore(), 10, 40);
+		gc.fillText("Total score: "+game.getSumScore(), 10, 40);
 
 		this.gameScene = scene;
+	}
+
+	public void drawScreen() {
+
+		Canvas canvas = new Canvas(1280, 800);
+
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		//System.out.println(System.getProperty("user.dir"));
+		
+		for (int i = 0; i < this.mapHeight; i++) {
+			for (int j = 0; j < this.mapWidth; j++) {
+				if (currentMap[i][j] == 1) {
+					gc.drawImage(floor, i * 16, j * 10);
+				} else if (currentMap[i][j] == 2) {
+					gc.drawImage(floor, i * 16, j * 10);
+					gc.drawImage(character, i * 16, j * 10);
+				} else {
+					gc.drawImage(wall, i * 16, j * 10);
+				}
+
+			}
+		}
+
+		gc.setTextAlign(TextAlignment.LEFT);
+		gc.setFont(new Font("Comic sans",25));
+		gc.setFill(Color.WHITE);
+		gc.fillText("Total score: "+game.getSumScore(), 10, 40);
+
+
+		this.root.getChildren().clear();
+		this.root.getChildren().add(canvas);
 	}
 }
