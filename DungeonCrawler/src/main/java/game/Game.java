@@ -15,9 +15,10 @@ public class Game {
 
 	private int currentY;
 	private int currentX;
-
 	private Map map;
 	private int[][] currentMap;
+	private int totalScore;
+	private int score;
 
 	public Game(int y, int x, int rooms, int playerStartY, int playerStartX) {
 
@@ -26,10 +27,19 @@ public class Game {
 		this.currentY = playerStartY;
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
+		this.totalScore = 0;
+		this.score=0;
 	}
 
 	public int[][] getMap(){
 		return this.currentMap;
+	}
+
+	public int getScore(){
+		return this.score;
+	}
+	public int getTotalScore(){
+		return this.totalScore;
 	}
 	
 	public void printLocation(){

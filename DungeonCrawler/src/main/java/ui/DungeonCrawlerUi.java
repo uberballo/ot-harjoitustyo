@@ -23,9 +23,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 /**
@@ -108,25 +110,6 @@ public class DungeonCrawlerUi extends Application {
 					drawScreen();
 					input.remove(("D"));
 				}
-				/*
-				if (input.contains("W")) {
-					game.moveCharacterUp();
-					stage.setScene(gameScreen());
-					input.remove(("W"));
-				} else if (input.contains("A")){
-					game.moveCharacterLeft();
-					stage.setScene(gameScreen());
-					input.remove(("A"));
-				} else if (input.contains("S")){
-					game.moveCharacterDown();
-					stage.setScene(gameScreen());
-				} else if (input.contains("D")){
-					game.moveCharacterRight();
-					stage.setScene(gameScreen());
-				} else {
-					game.printLocation();
-				}
-				 */
 			}
 		}.start();
 
@@ -141,8 +124,7 @@ public class DungeonCrawlerUi extends Application {
 
 		//System.out.println(System.getProperty("user.dir"));
 
-
-		//currently dimensions aren't correct. But still gives a view of the map.
+		
 		for (int i = 0; i < this.mapHeight; i++) {
 			for (int j = 0; j < this.mapWidth; j++) {
 				if (currentMap[i][j] == 1) {
@@ -156,6 +138,12 @@ public class DungeonCrawlerUi extends Application {
 
 			}
 		}
+
+		gc.setTextAlign(TextAlignment.LEFT);
+		gc.setFont(new Font("Comic sans",25));
+		gc.setFill(Color.WHITE);
+		gc.fillText("Total score: "+game.getTotalScore(), 10, 40);
+
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
 	}
@@ -168,7 +156,9 @@ public class DungeonCrawlerUi extends Application {
 		Text title = new Text("Dungeon Crawler");
 		title.setFont(Font.font("Comic Sansa", FontWeight.NORMAL, 20));
 		grid.add(title, 0, 0, 2, 1);
-
+		
+		grid.add((new Text("W,A,S,D to move")),1,10,3,3);
+		
 		Button button = new Button("Play");
 		grid.add(button, 1, 1);
 
@@ -190,17 +180,6 @@ public class DungeonCrawlerUi extends Application {
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 
-		/*
-		Image floor = new Image("floor.png");
-		Image wall = new Image("wall.png");
-		Image character = new Image("character.png");
-*/
-
-		//System.out.println(System.getProperty("user.dir"));
-		//Image floor = new Image(new File("main/images/floor.png").toURI().toString());
-		//Image wall = new Image(new File("src/main/resources/wall.png").toURI().toString());
-		//Image character = new Image(new File("src/main/resources/character.png").toURI().toString());
-		//currently dimensions aren't correct. But still gives a view of the map.
 		for (int i = 0; i < this.mapHeight; i++) {
 			for (int j = 0; j < this.mapWidth; j++) {
 				if (currentMap[i][j] == 1) {
@@ -214,6 +193,11 @@ public class DungeonCrawlerUi extends Application {
 
 			}
 		}
+
+		gc.setTextAlign(TextAlignment.LEFT);
+		gc.setFont(new Font("Comic sans",25));
+		gc.setFill(Color.WHITE);
+		gc.fillText("Total score: "+game.getTotalScore(), 10, 40);
 
 		this.gameScene = scene;
 	}
