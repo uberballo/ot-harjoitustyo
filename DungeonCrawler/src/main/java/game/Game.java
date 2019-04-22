@@ -28,37 +28,39 @@ public class Game {
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
-		this.score=1000;
+		this.score = 1000;
 	}
-	public void setScore(int x){
+
+	public void setScore(int x) {
 		this.score = x;
 	}
 
-	public void increaseScore(){
+	public void increaseScore() {
 		this.score++;
 	}
-	public void decreaseScore(){
+
+	public void decreaseScore() {
 		this.score--;
 	}
 
-	public int[][] getMap(){
+	public int[][] getMap() {
 		return this.currentMap;
 	}
 
-	public int getScore(){
+	public int getScore() {
 		return this.score;
 	}
-	public int getTotalScore(){
+
+	public int getTotalScore() {
 		return this.totalScore;
 	}
 
-	public int getSumScore(){
-		return this.totalScore+this.score;
+	public int getSumScore() {
+		return this.totalScore + this.score;
 	}
 
-	
-	public void printLocation(){
-		System.out.println("Current x, y :"+currentX+" "+currentY);
+	public void printLocation() {
+		System.out.println("Current x, y :" + currentX + " " + currentY);
 	}
 
 	public void moveCharacterRight() {

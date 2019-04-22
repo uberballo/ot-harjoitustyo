@@ -45,11 +45,10 @@ public class DungeonCrawlerUi extends Application {
 	private Group root;
 
 	private Image floor = new Image("floor.png");
-	private	Image wall = new Image("wall.png");
-	private	Image character = new Image("character.png");
+	private Image wall = new Image("wall.png");
+	private Image character = new Image("character.png");
 
 	//Currently very ugly code. Needs to be refactored
-
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -116,7 +115,6 @@ public class DungeonCrawlerUi extends Application {
 		stage.show();
 	}
 
-
 	public Scene startScreen(Scene gameScene) {
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
@@ -125,9 +123,9 @@ public class DungeonCrawlerUi extends Application {
 		Text title = new Text("Dungeon Crawler");
 		title.setFont(Font.font("Comic Sansa", FontWeight.NORMAL, 20));
 		grid.add(title, 0, 0, 2, 1);
-		
-		grid.add((new Text("W,A,S,D to move")),1,10,3,3);
-		
+
+		grid.add((new Text("W,A,S,D to move")), 1, 10, 3, 3);
+
 		Button button = new Button("Play");
 		grid.add(button, 1, 1);
 
@@ -140,7 +138,7 @@ public class DungeonCrawlerUi extends Application {
 
 		return scene;
 	}
-	
+
 	public void gameScreen() {
 		Scene scene = new Scene(this.root);
 
@@ -164,9 +162,9 @@ public class DungeonCrawlerUi extends Application {
 		}
 
 		gc.setTextAlign(TextAlignment.LEFT);
-		gc.setFont(new Font("Comic sans",25));
+		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: "+game.getSumScore(), 10, 40);
+		gc.fillText("Total score: " + game.getSumScore(), 10, 40);
 
 		this.gameScene = scene;
 	}
@@ -177,7 +175,7 @@ public class DungeonCrawlerUi extends Application {
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		//System.out.println(System.getProperty("user.dir"));
-		
+
 		for (int i = 0; i < this.mapHeight; i++) {
 			for (int j = 0; j < this.mapWidth; j++) {
 				if (currentMap[i][j] == 1) {
@@ -193,10 +191,9 @@ public class DungeonCrawlerUi extends Application {
 		}
 
 		gc.setTextAlign(TextAlignment.LEFT);
-		gc.setFont(new Font("Comic sans",25));
+		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: "+game.getSumScore(), 10, 40);
-
+		gc.fillText("Total score: " + game.getSumScore(), 10, 40);
 
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
