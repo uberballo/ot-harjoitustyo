@@ -22,7 +22,7 @@ public class Game {
 
 	/**
 	 * Game-class contains all the game's functionality and information.
-	 * contains the object Map. On the map,0 represents the walls, 1 represents
+	 * contains the object Map. On the map, 0 represents the walls, 1 represents
 	 * the floors and 2 represents the player.
 	 *
 	 * @param y Height of the map.
