@@ -44,11 +44,11 @@ public class DungeonCrawlerUi extends Application {
 	private Scene gameScene;
 	private Group root;
 
+	//The images used by the game. Images are contained in the images- package.
 	private Image floor = new Image("floor.png");
 	private Image wall = new Image("wall.png");
 	private Image character = new Image("character.png");
 
-	//Currently very ugly code. Needs to be refactored
 	public static void main(String[] args) {
 		launch(args);
 	}

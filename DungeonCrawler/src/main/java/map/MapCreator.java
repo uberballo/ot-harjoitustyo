@@ -22,6 +22,18 @@ public class MapCreator {
 	private Room lastRoom;
 	private Room[] rooms;
 
+	/**
+	 * Produces rooms randomly. After the first room is created, we randomly add
+	 * a corridor to the last made room. Repeat that process until we have
+	 * correct amount of rooms. 1 represents floor and 0 represents wall.
+	 *
+	 *
+	 * @param y Height of the map.
+	 * @param x Width of the map.
+	 * @param rooms Number of rooms.
+	 * @param playerStartY Location of the first room on the Y axel.
+	 * @param playerStartX Location of the first room on the X axel.
+	 */
 	public MapCreator(int y, int x, int numberOfRooms, int playerStartY, int playerStartX) {
 		this.numberOfRooms = numberOfRooms;
 
@@ -35,7 +47,7 @@ public class MapCreator {
 			}
 		}
 		//We make the first starting room and place it to the lastRoom variable to save space.
-		this.lastRoom = createRoom(playerStartY,playerStartX,4,4);
+		this.lastRoom = createRoom(playerStartY, playerStartX, 4, 4);
 		rooms = new Room[numberOfRooms + 1];
 		rooms[0] = lastRoom;
 		//We add the first room to the map.
@@ -62,6 +74,10 @@ public class MapCreator {
 		}
 	}
 
+	/**
+	 * *
+	 * Produces rooms randomly, until we have the correct amount of rooms.
+	 */
 	public void produceRandomRooms() {
 		int now = 1;
 		while (now < numberOfRooms) {
@@ -80,10 +96,31 @@ public class MapCreator {
 		}
 	}
 
-	public Room createRoom(int y, int x, int height, int widht) {
-		return new Room(y, x, height, widht);
+	/**
+	 * *
+	 * produces a new Room object.
+	 *
+	 * @param y Starting location of the room on Y axel.
+	 * @param x Starting location of the room on Y axel.
+	 * @param height rooms height.
+	 * @param width rooms width.
+	 *
+	 * @return New room object.
+	 */
+	public Room createRoom(int y, int x, int height, int width) {
+		return new Room(y, x, height, width);
 	}
 
+	/**
+	 * *
+	 * Tries to add a new room to the arrays "Map" and "Rooms" and connects the
+	 * new room with the last room made.
+	 *
+	 * @param newRoom new room to add.
+	 *
+	 * @return If the new room doesn't intersect any older rooms, function
+	 * returns True, otherwise False.
+	 */
 	public boolean addRoom(Room newRoom) {
 		if (newRoom.y2 <= y && newRoom.x2 <= x) {
 			//Check if the room intersects with any of the current rooms
@@ -115,12 +152,32 @@ public class MapCreator {
 		}
 	}
 
+	/**
+	 * *
+	 * Produces a vertical tunnel. Used by the addRoom function. To ensure the
+	 * tunnel connects to the rooms and the for-loop works, we use Math.min()
+	 * and Math.Max() to go in ascending order.
+	 *
+	 * @param y1 Last rooms starting position on Y axel.
+	 * @param y2 New rooms starting position on Y axel.
+	 * @param x New or old rooms starting position on X axel.
+	 */
 	public void createVerticalTunnel(int y1, int y2, int x) {
 		for (int y = Math.min(y1, y2); y <= Math.max(y1, y2); y++) {
 			map[y][x] = 1;
 		}
 	}
 
+	/**
+	 * *
+	 * Produces a horizontal tunnel. Used by the addRoom function. To ensure the
+	 * tunnel connects to the rooms and the for-loop works, we use Math.min()
+	 * and Math.Max() to go in ascending order.
+	 *
+	 * @param x1 Last rooms starting position on X axel.
+	 * @param x2 New rooms starting position on X axel.
+	 * @param y New or old rooms starting position on Y axel.
+	 */
 	public void createHorizontalTunnel(int x1, int x2, int y) {
 		for (int x = Math.min(x1, x2); x <= Math.max(x1, x2); x++) {
 			map[y][x] = 1;
