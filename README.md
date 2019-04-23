@@ -7,6 +7,9 @@ Dungeon crawler-like game. Game where the player has to navigate trough procedur
 [Software requirements specification](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/SoftwareRequirementsSpecifications.md)  
 [Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)
 
+## Releases
+[Week 5](https://github.com/uberballo/ot-harjoitustyo/releases/tag/viikko5)  
+
 ## Command line functions
 ### Testing
 
@@ -21,7 +24,13 @@ Test coverage report can be made with
 ```
 mvn jacoco:report
 ```
-Test coverage report can be found from target/site/jacoco/index.html
+Test coverage report can be found from target/site/jacoco/index.html  
+
+Checkstyle report can be generated with
+
+```
+mavn jxr:jxr checkstyle:checkstyle
+```
 
 ### Generating .jar file
 
