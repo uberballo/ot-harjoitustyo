@@ -15,10 +15,10 @@ public class Map {
 	private int y;
 	private int x;
 
-	public Map(int y, int x, int rooms) {
+	public Map(int y, int x, int rooms, int playerStartY, int playerStartX) {
 		this.y = y;
 		this.x = x;
-		MapCreator mapCreator = new MapCreator(y, x, rooms);
+		MapCreator mapCreator = new MapCreator(y, x, rooms, playerStartY, playerStartX );
 		this.map = mapCreator.getMap();
 	}
 

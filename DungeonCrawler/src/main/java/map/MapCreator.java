@@ -22,7 +22,7 @@ public class MapCreator {
 	private Room lastRoom;
 	private Room[] rooms;
 
-	public MapCreator(int y, int x, int numberOfRooms) {
+	public MapCreator(int y, int x, int numberOfRooms, int playerStartY, int playerStartX) {
 		this.numberOfRooms = numberOfRooms;
 
 		this.x = x;
@@ -35,7 +35,7 @@ public class MapCreator {
 			}
 		}
 		//We make the first starting room and place it to the lastRoom variable to save space.
-		this.lastRoom = createRoom((x / 2 - 1), (y / 2 - 1), 4, 4);
+		this.lastRoom = createRoom(playerStartY,playerStartX,4,4);
 		rooms = new Room[numberOfRooms + 1];
 		rooms[0] = lastRoom;
 		//We add the first room to the map.

@@ -19,10 +19,20 @@ public class Game {
 	private int[][] currentMap;
 	private int totalScore;
 	private int score;
+	
+	/**
+	 * 
+	 * 
+	 * @param y Height of the map.
+	 * @param x Width of the map.
+	 * @param rooms Number of rooms.
+	 * @param playerStartY Starting position of the player on Y axel. 
+	 * @param playerStartX Starting position of the player on X axel. 
 
+	 */
 	public Game(int y, int x, int rooms, int playerStartY, int playerStartX) {
 
-		this.map = new Map(y, x, rooms);
+		this.map = new Map(y, x, rooms, playerStartY, playerStartX);
 		this.currentMap = map.getMap();
 		this.currentY = playerStartY;
 		this.currentX = playerStartX;

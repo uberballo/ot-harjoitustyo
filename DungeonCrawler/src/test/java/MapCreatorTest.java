@@ -29,7 +29,7 @@ public class MapCreatorTest {
 		y = 80;
 		x = 80;
 		rooms = 10;
-		map = new Map(y, x, rooms);
+		map = new Map(y, x, rooms, y/2,x/2);
 		currentMap = map.getMap();
 	}
 
