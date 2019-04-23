@@ -10,4 +10,6 @@
 |2.4|2| Added graphics, improved algorithm|
 |9.4|2|Added package for game logic, updated tests and minor documents|
 |14.4|3|Player can move the character now. Studied javafx and event handling|
-|Total|14|
+|22.4|2|Refactoring and few functionalities|
+|23.4|1|Javadoc and more refactoring|
+|Total|17|
