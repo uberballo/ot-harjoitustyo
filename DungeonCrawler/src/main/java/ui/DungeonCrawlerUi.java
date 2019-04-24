@@ -48,6 +48,8 @@ public class DungeonCrawlerUi extends Application {
 	private Image floor = new Image("floor.png");
 	private Image wall = new Image("wall.png");
 	private Image character = new Image("character.png");
+	private Image coin = new Image("coin.png");
+	private Image stairs = new Image("stairs.png");
 
 	public static void main(String[] args) {
 		launch(args);
@@ -154,6 +156,12 @@ public class DungeonCrawlerUi extends Application {
 				} else if (currentMap[i][j] == 2) {
 					gc.drawImage(floor, i * 16, j * 10);
 					gc.drawImage(character, i * 16, j * 10);
+				} else if (currentMap[i][j] == 3) {
+					gc.drawImage(floor, i * 16, j * 10);
+					gc.drawImage(coin, i * 16, j * 10);
+				} else if (currentMap[i][j] == 4) {
+					gc.drawImage(floor, i * 16, j * 10);
+					gc.drawImage(stairs, i * 16, j * 10);
 				} else {
 					gc.drawImage(wall, i * 16, j * 10);
 				}
@@ -180,9 +188,19 @@ public class DungeonCrawlerUi extends Application {
 			for (int j = 0; j < this.mapWidth; j++) {
 				if (currentMap[i][j] == 1) {
 					gc.drawImage(floor, i * 16, j * 10);
+
 				} else if (currentMap[i][j] == 2) {
 					gc.drawImage(floor, i * 16, j * 10);
 					gc.drawImage(character, i * 16, j * 10);
+					
+				} else if (currentMap[i][j] == 3) {
+					gc.drawImage(floor, i * 16, j * 10);
+					gc.drawImage(coin, i * 16, j * 10);
+					
+				} else if (currentMap[i][j] == 4) {
+					gc.drawImage(floor, i * 16, j * 10);
+					gc.drawImage(stairs, i * 16, j * 10);
+
 				} else {
 					gc.drawImage(wall, i * 16, j * 10);
 				}

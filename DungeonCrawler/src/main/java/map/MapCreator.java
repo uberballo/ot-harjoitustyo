@@ -87,6 +87,12 @@ public class MapCreator {
 			int y1 = random.nextInt(this.y - y) + 1;
 			int x1 = random.nextInt(this.y - y) + 1;
 
+			if (y1 > 10) {
+				y1 = 10;
+			}
+			if (x1 > 10) {
+				x1 = 10;
+			}
 			Room newRoom = createRoom(y, x, x1, x1);
 
 			if (addRoom(newRoom)) {
