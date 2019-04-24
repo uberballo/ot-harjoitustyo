@@ -25,8 +25,9 @@ public class Game {
 
 	/**
 	 * Game-class contains all the games functionality and information. contains
-	 * the object Map. On the map, 0 represents the walls, 1 represents the
-	 * floors and 2 represents the player.
+	 * the object Map. On the map: 0 represents the walls. 1 represents the
+	 * floors 2 represents the player. 3 represents the coins 4 represents the
+	 * stairs
 	 *
 	 * @param y Height of the map.
 	 * @param x Width of the map.
@@ -73,6 +74,10 @@ public class Game {
 		}
 	}
 
+	/**
+	 * *
+	 * Adds a pair of stairs to the map
+	 */
 	public void addStairs() {
 		while (true) {
 			for (int i = 0; i < map.getY(); i++) {

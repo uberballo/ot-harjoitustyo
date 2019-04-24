@@ -36,7 +36,7 @@ public class Room {
 	 * *
 	 * Checks if the current room intersects with the given room.
 	 *
-	 * @param room
+	 * @param room Compared room object.
 	 * @return True if the room intersects, otherwise False.
 	 */
 	public boolean intersect(Room room) {

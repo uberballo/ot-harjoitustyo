@@ -30,7 +30,7 @@ public class MapCreator {
 	 *
 	 * @param y Height of the map.
 	 * @param x Width of the map.
-	 * @param rooms Number of rooms.
+	 * @param numberOfRooms Number of rooms.
 	 * @param playerStartY Location of the first room on the Y axel.
 	 * @param playerStartX Location of the first room on the X axel.
 	 */

@@ -178,11 +178,9 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void drawScreen() {
-
 		Canvas canvas = new Canvas(1280, 800);
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-		//System.out.println(System.getProperty("user.dir"));
 
 		for (int i = 0; i < this.mapHeight; i++) {
 			for (int j = 0; j < this.mapWidth; j++) {
@@ -192,11 +190,11 @@ public class DungeonCrawlerUi extends Application {
 				} else if (currentMap[i][j] == 2) {
 					gc.drawImage(floor, i * 16, j * 10);
 					gc.drawImage(character, i * 16, j * 10);
-					
+
 				} else if (currentMap[i][j] == 3) {
 					gc.drawImage(floor, i * 16, j * 10);
 					gc.drawImage(coin, i * 16, j * 10);
-					
+
 				} else if (currentMap[i][j] == 4) {
 					gc.drawImage(floor, i * 16, j * 10);
 					gc.drawImage(stairs, i * 16, j * 10);
@@ -204,7 +202,6 @@ public class DungeonCrawlerUi extends Application {
 				} else {
 					gc.drawImage(wall, i * 16, j * 10);
 				}
-
 			}
 		}
 
