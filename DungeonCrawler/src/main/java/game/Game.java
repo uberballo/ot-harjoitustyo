@@ -21,6 +21,7 @@ public class Game {
 	private int totalScore;
 	private int score;
 	private int amountOfCoins;
+	private int numberOfRooms;
 	private Random random;
 
 	/**
@@ -44,7 +45,8 @@ public class Game {
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
 		this.score = 1000;
-		this.amountOfCoins = 5;
+		this.amountOfCoins = 2 + rooms;
+		this.numberOfRooms = rooms;
 		this.random = new Random();
 
 		addCoins();
@@ -62,7 +64,7 @@ public class Game {
 		while (true) {
 			for (int i = 0; i < map.getY(); i++) {
 				for (int j = 0; j < map.getX(); j++) {
-					if (random.nextDouble() < 0.05 && currentMap[i][j] == 1) {
+					if (random.nextInt(1000) < 10 && currentMap[i][j] == 1) {
 						currentMap[i][j] = 3;
 						currentAmountOfCoins++;
 					}
@@ -82,7 +84,7 @@ public class Game {
 		while (true) {
 			for (int i = 0; i < map.getY(); i++) {
 				for (int j = 0; j < map.getX(); j++) {
-					if (random.nextDouble() < 0.01 && currentMap[i][j] == 1) {
+					if (random.nextInt(100) < 4 && currentMap[i][j] == 1) {
 						currentMap[i][j] = 4;
 						return;
 					}
@@ -126,6 +128,9 @@ public class Game {
 	public void checkPosition() {
 		if (currentMap[currentY][currentX] == 3) {
 			this.score += 100;
+		} else if (currentMap[currentY][currentX] == 4) {
+
+			//Make a new map here, increase number of rooms by 1 and number of coins by 1
 		}
 	}
 
