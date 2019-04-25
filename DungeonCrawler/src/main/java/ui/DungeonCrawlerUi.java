@@ -209,6 +209,7 @@ public class DungeonCrawlerUi extends Application {
 		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
 		gc.fillText("Total score: " + game.getSumScore(), 10, 40);
+		gc.fillText("Room: " + game.getRoomNumber(),10,70);
 
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);

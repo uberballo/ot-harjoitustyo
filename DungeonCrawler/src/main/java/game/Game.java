@@ -128,6 +128,10 @@ public class Game {
 		return this.totalScore + this.score;
 	}
 
+	public int getRoomNumber(){
+		return this.numberOfRooms;
+	}
+
 	public void printLocation() {
 		System.out.println("Current x, y :" + currentX + " " + currentY);
 	}
