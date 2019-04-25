@@ -105,7 +105,6 @@ public class DungeonCrawlerUi extends Application {
 
 			@Override
 			public void handle(long nykyhetki) {
-				System.out.println(input.toString());
 				if (input.contains("W")) {
 					game.moveCharacterUp();
 					drawScreen();
