@@ -21,68 +21,65 @@ public class HighScoreDao {
 
 	private String url;
 
-	public HighScoreDao(){
+	public HighScoreDao() {
 		this.url = "jdbc::sqlite:highscores.db";
 		createNewTable();
 	}
 
-	private Connection connect(){
+	private Connection connect() {
 		Connection conn = null;
-		try{
+		try {
 			conn = DriverManager.getConnection(this.url);
 			System.out.println("Connection to sqlite has been established");
-		} catch(SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e);
-		} 	
+		}
 		return conn;
 	}
 
-	private void createNewTable(){
+	private void createNewTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS highscore (\n"
-			+"id integer PRIMARY KEY, \n"
-			+"name text NOT NULL, \n"
-			+"score integer \n"
-			+");";
-
+			+ "id integer PRIMARY KEY, \n"
+			+ "name text NOT NULL, \n"
+			+ "score integer \n"
+			+ ");";
 
 		try (Connection conn = DriverManager.getConnection(this.url);
-			Statement stmt = conn.createStatement()){
+			Statement stmt = conn.createStatement()) {
 			stmt.execute(sql);
-		} catch(SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e);
 		}
 	}
 
-	public void insert(String name, int score){
+	public void insert(String name, int score) {
 		String sql = "INSERT INTO highscore(name,score) VALUES(?,?)";
 		try (Connection conn = connect();
-			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, name);
 			pstmt.setInt(2, score);
 			pstmt.executeUpdate();
-		} catch(SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			}
 		}
+	}
 
-	public ArrayList<Integer> getScores(){
+	public ArrayList<Integer> getScores() {
 		ArrayList<Integer> scores = new ArrayList<>();
 		String sql = "SELECT score FROM highscore";
 		try (Connection conn = connect();
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(sql)){
+			ResultSet rs = stmt.executeQuery(sql)) {
 
-			while (rs.next()){
+			while (rs.next()) {
 				int value = rs.getInt("score");
 				System.out.println(value);
 				scores.add(value);
 			}
-		} catch (SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return scores;
 	}
-	
 
-	
 }

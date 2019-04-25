@@ -6,10 +6,7 @@
 package ui;
 
 import game.Game;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.application.Application;
@@ -217,4 +214,5 @@ public class DungeonCrawlerUi extends Application {
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
 	}
+
 }
