@@ -25,10 +25,10 @@ public class Game {
 	private Random random;
 
 	/**
-	 * Game-class contains all the games functionality and information. contains
-	 * the object Map. On the map: 0 represents the walls. 1 represents the
-	 * floors 2 represents the player. 3 represents the coins 4 represents the
-	 * stairs
+	 * Game-class contains all the games functionality and information.
+	 * contains the object Map. On the map: 0 represents the walls. 1
+	 * represents the floors 2 represents the player. 3 represents the coins
+	 * 4 represents the stairs
 	 *
 	 * @param y Height of the map.
 	 * @param x Width of the map.
@@ -102,7 +102,7 @@ public class Game {
 	}
 
 	public void decreaseScore() {
-		this.score--;
+		this.score -= 1;
 	}
 
 	public int[][] getMap() {
@@ -131,6 +131,12 @@ public class Game {
 		} else if (currentMap[currentY][currentX] == 4) {
 
 			//Make a new map here, increase number of rooms by 1 and number of coins by 1
+			this.numberOfRooms++;
+			this.amountOfCoins++;
+			this.map = new Map(map.getY(), map.getX(), this.numberOfRooms, currentY, currentX);
+			this.currentMap = map.getMap();
+			addCoins();
+			addStairs();
 		}
 	}
 
@@ -154,10 +160,10 @@ public class Game {
 	public void moveCharacterRight() {
 		if (currentMap[currentY + 1][currentX] != 0) {
 			currentY++;
+			decreaseScore();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY - 1][currentX] = 1;
-			decreaseScore();
 		}
 	}
 
@@ -167,10 +173,10 @@ public class Game {
 	public void moveCharacterLeft() {
 		if (currentMap[currentY - 1][currentX] != 0) {
 			currentY--;
+			decreaseScore();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY + 1][currentX] = 1;
-			decreaseScore();
 		}
 	}
 
@@ -180,10 +186,10 @@ public class Game {
 	public void moveCharacterDown() {
 		if (currentMap[currentY][currentX + 1] != 0) {
 			currentX++;
+			decreaseScore();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX - 1] = 1;
-			decreaseScore();
 		}
 	}
 
@@ -193,10 +199,10 @@ public class Game {
 	public void moveCharacterUp() {
 		if (currentMap[currentY][currentX - 1] != 0) {
 			currentX--;
+			decreaseScore();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX + 1] = 1;
-			decreaseScore();
 		}
 	}
 

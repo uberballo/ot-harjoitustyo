@@ -36,7 +36,7 @@ import javafx.stage.Stage;
  */
 public class DungeonCrawlerUi extends Application {
 
-	private int[][] currentMap;
+	//private int[][] currentMap;
 	private Stage stage;
 	private Game game;
 	private int mapHeight;
@@ -59,11 +59,11 @@ public class DungeonCrawlerUi extends Application {
 		this.root = new Group();
 		this.mapHeight = 80;
 		this.mapWidth = 80;
-		int rooms = 10;
+		int rooms = 1;
 		int startY = 40;
 		int startX = 40;
 		this.game = new Game(this.mapHeight, this.mapWidth, rooms, startY, startX);
-		this.currentMap = game.getMap();
+		//this.currentMap = game.getMap();
 	}
 
 	public void start(Stage stage) {
@@ -142,6 +142,8 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void gameScreen() {
+		int[][] currentMap = game.getMap();
+
 		Scene scene = new Scene(this.root);
 
 		Canvas canvas = new Canvas(1280, 800);
@@ -178,6 +180,8 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void drawScreen() {
+		int[][] currentMap = game.getMap();
+
 		Canvas canvas = new Canvas(1280, 800);
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
