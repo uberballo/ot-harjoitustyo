@@ -71,7 +71,7 @@ public class DungeonCrawlerUi extends Application {
 		timer.scheduleAtFixedRate(new TimerTask(){
 			@Override
 			public void run(){
-				game.decreaseScore();
+				game.decreaseTime();
 			}
 		},1000, 1000);
 		
@@ -164,17 +164,6 @@ public class DungeonCrawlerUi extends Application {
 		drawScreen();
 	}
 
-	public void gameScoreDecrease(){
-		Timer t = new Timer();
-		t.scheduleAtFixedRate(new TimerTask(){
-			@Override
-			public void run(){
-				game.decreaseScore();
-				drawScreen();
-			}
-		},1000, 1000);
-	}
-
 	public void drawScreen() {
 		int[][] currentMap = game.getMap();
 
@@ -208,7 +197,7 @@ public class DungeonCrawlerUi extends Application {
 		gc.setTextAlign(TextAlignment.LEFT);
 		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: " + game.getSumScore(), 10, 40);
+		gc.fillText("Time: " + game.getTime(), 10, 40);
 		gc.fillText("Room: " + game.getRoomNumber(),10,70);
 
 		this.root.getChildren().clear();

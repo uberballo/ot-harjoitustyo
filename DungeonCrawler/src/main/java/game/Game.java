@@ -21,7 +21,7 @@ public class Game {
 	private Map map;
 	private int[][] currentMap;
 	private int totalScore;
-	private int score;
+	private int time;
 	private int amountOfCoins;
 	private int numberOfRooms;
 	private Random random;
@@ -46,7 +46,7 @@ public class Game {
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
-		this.score = 1000;
+		this.time = 1000;
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
 		this.random = new Random();
@@ -95,38 +95,26 @@ public class Game {
 		}
 	}
 
-	public void setScore(int x) {
-		this.score = x;
+	public void setTime(int x) {
+		this.time = x;
 	}
 
-	public void increaseScore() {
-		this.score++;
+	public void increaseTime() {
+		this.time++;
 	}
 
-	public void decreaseScore() {
-		this.score -= 1;
-	}
-
-	public int decreaseScoreTimer(){
-		this.score -=1;
-		return 0;
+	public void decreaseTime() {
+		this.time -= 1*numberOfRooms;
 	}
 
 	public int[][] getMap() {
 		return this.currentMap;
 	}
 
-	public int getScore() {
-		return this.score;
+	public int getTime() {
+		return this.time;
 	}
 
-	public int getTotalScore() {
-		return this.totalScore;
-	}
-
-	public int getSumScore() {
-		return this.totalScore + this.score;
-	}
 
 	public int getRoomNumber(){
 		return this.numberOfRooms;
@@ -138,7 +126,7 @@ public class Game {
 
 	public void checkPosition() {
 		if (currentMap[currentY][currentX] == 3) {
-			this.score += 100;
+			this.time += 100;
 		} else if (currentMap[currentY][currentX] == 4) {
 
 			//Make a new map here, increase number of rooms by 1 and number of coins by 1
@@ -159,7 +147,7 @@ public class Game {
 					currentX--;
 					currentMap[currentY][currentX] = 2;
 					currentMap[currentY][currentX + 1] = 1;
-					decreaseScore();
+					decreaseTime();
 				}
 
 		}
@@ -171,7 +159,7 @@ public class Game {
 	public void moveCharacterRight() {
 		if (currentMap[currentY + 1][currentX] != 0) {
 			currentY++;
-			decreaseScore();
+			decreaseTime();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY - 1][currentX] = 1;
@@ -184,7 +172,7 @@ public class Game {
 	public void moveCharacterLeft() {
 		if (currentMap[currentY - 1][currentX] != 0) {
 			currentY--;
-			decreaseScore();
+			decreaseTime();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY + 1][currentX] = 1;
@@ -197,7 +185,7 @@ public class Game {
 	public void moveCharacterDown() {
 		if (currentMap[currentY][currentX + 1] != 0) {
 			currentX++;
-			decreaseScore();
+			decreaseTime();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX - 1] = 1;
@@ -210,7 +198,7 @@ public class Game {
 	public void moveCharacterUp() {
 		if (currentMap[currentY][currentX - 1] != 0) {
 			currentX--;
-			decreaseScore();
+			decreaseTime();
 			checkPosition();
 			currentMap[currentY][currentX] = 2;
 			currentMap[currentY][currentX + 1] = 1;

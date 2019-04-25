@@ -6,6 +6,7 @@
 package GameTest;
 
 import game.Game;
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -29,13 +30,12 @@ public class GameTest {
 	}
 
 	@Test
-	public void movementDecreasesScore() {
-		assertEquals(game.getSumScore(), 1000);
+	public void movementDecreasesTime() {
+		assertEquals(game.getTime(), 1000);
 
 		game.moveCharacterUp();
 		game.moveCharacterDown();
 
-		//This might cause problems, as the map is always randomly generated. Thus we only test going up and down.
-		assertEquals(game.getSumScore(), 998);
+		Assert.assertNotEquals(game.getTime(),1000);
 	}
 }
