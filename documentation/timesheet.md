@@ -12,4 +12,5 @@
 |14.4|3|Player can move the character now. Studied javafx and event handling|
 |22.4|2|Refactoring and few functionalities|
 |23.4|1|Javadoc and more refactoring|
-|Total|17|
+|26.4|2|Functioning stairs and refactoring|
+|Total|19|
