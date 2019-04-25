@@ -6,7 +6,10 @@
 package ui;
 
 import game.Game;
+import java.awt.event.WindowAdapter;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.application.Application;
@@ -18,7 +21,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,6 +28,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -48,6 +51,8 @@ public class DungeonCrawlerUi extends Application {
 	private Image coin = new Image("coin.png");
 	private Image stairs = new Image("stairs.png");
 
+	private Timer timer;
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -60,8 +65,18 @@ public class DungeonCrawlerUi extends Application {
 		int startY = 40;
 		int startX = 40;
 		this.game = new Game(this.mapHeight, this.mapWidth, rooms, startY, startX);
-		//this.currentMap = game.getMap();
+		
+		//Decreases the score every second. 
+		this.timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask(){
+			@Override
+			public void run(){
+				game.decreaseScore();
+			}
+		},1000, 1000);
+		
 	}
+
 
 	public void start(Stage stage) {
 		this.stage = stage;
@@ -107,8 +122,13 @@ public class DungeonCrawlerUi extends Application {
 					game.moveCharacterRight();
 					drawScreen();
 					input.remove(("D"));
+				}else{
+					drawScreen();
 				}
 			}
+
+		
+
 		}.start();
 
 		stage.show();
@@ -139,12 +159,20 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void gameScreen() {
-		int[][] currentMap = game.getMap();
-
 		Scene scene = new Scene(this.root);
-
 		this.gameScene = scene;
 		drawScreen();
+	}
+
+	public void gameScoreDecrease(){
+		Timer t = new Timer();
+		t.scheduleAtFixedRate(new TimerTask(){
+			@Override
+			public void run(){
+				game.decreaseScore();
+				drawScreen();
+			}
+		},1000, 1000);
 	}
 
 	public void drawScreen() {
@@ -184,6 +212,11 @@ public class DungeonCrawlerUi extends Application {
 
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
+	}
+	//When the window is closed, we turn of the timer.
+	@Override
+	public void stop(){
+		this.timer.cancel();
 	}
 
 }

@@ -6,6 +6,8 @@
 package game;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import map.Map;
 
 /**
@@ -48,7 +50,7 @@ public class Game {
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
 		this.random = new Random();
-
+		
 		addCoins();
 		addStairs();
 
@@ -84,7 +86,7 @@ public class Game {
 		while (true) {
 			for (int i = 0; i < map.getY(); i++) {
 				for (int j = 0; j < map.getX(); j++) {
-					if (random.nextInt(100) < 4 && currentMap[i][j] == 1) {
+					if (random.nextInt(1000) < 1 && currentMap[i][j] == 1) {
 						currentMap[i][j] = 4;
 						return;
 					}
@@ -103,6 +105,11 @@ public class Game {
 
 	public void decreaseScore() {
 		this.score -= 1;
+	}
+
+	public int decreaseScoreTimer(){
+		this.score -=1;
+		return 0;
 	}
 
 	public int[][] getMap() {
