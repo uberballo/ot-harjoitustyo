@@ -143,37 +143,8 @@ public class DungeonCrawlerUi extends Application {
 
 		Scene scene = new Scene(this.root);
 
-		Canvas canvas = new Canvas(1280, 800);
-		root.getChildren().add(canvas);
-
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-
-		for (int i = 0; i < this.mapHeight; i++) {
-			for (int j = 0; j < this.mapWidth; j++) {
-				if (currentMap[i][j] == 1) {
-					gc.drawImage(floor, i * 16, j * 10);
-				} else if (currentMap[i][j] == 2) {
-					gc.drawImage(floor, i * 16, j * 10);
-					gc.drawImage(character, i * 16, j * 10);
-				} else if (currentMap[i][j] == 3) {
-					gc.drawImage(floor, i * 16, j * 10);
-					gc.drawImage(coin, i * 16, j * 10);
-				} else if (currentMap[i][j] == 4) {
-					gc.drawImage(floor, i * 16, j * 10);
-					gc.drawImage(stairs, i * 16, j * 10);
-				} else {
-					gc.drawImage(wall, i * 16, j * 10);
-				}
-
-			}
-		}
-
-		gc.setTextAlign(TextAlignment.LEFT);
-		gc.setFont(new Font("Comic sans", 25));
-		gc.setFill(Color.WHITE);
-		gc.fillText("Total score: " + game.getSumScore(), 10, 40);
-
 		this.gameScene = scene;
+		drawScreen();
 	}
 
 	public void drawScreen() {
