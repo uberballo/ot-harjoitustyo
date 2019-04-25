@@ -44,7 +44,7 @@ public class DungeonCrawlerUi extends Application {
 	private Scene gameScene;
 	private Group root;
 
-	//The images used by the game. Images are contained in the images- package.
+	//The images used by the game. Images are contained in the resources- folder.
 	private Image floor = new Image("floor.png");
 	private Image wall = new Image("wall.png");
 	private Image character = new Image("character.png");
