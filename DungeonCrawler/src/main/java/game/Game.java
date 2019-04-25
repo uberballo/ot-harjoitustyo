@@ -103,6 +103,10 @@ public class Game {
 		this.time++;
 	}
 
+	public void increaseTime(int moreTime){
+		this.time+=moreTime;
+	}
+
 	public void decreaseTime() {
 		this.time -= 1*numberOfRooms;
 	}
@@ -134,6 +138,7 @@ public class Game {
 			this.amountOfCoins++;
 			this.map = new Map(map.getY(), map.getX(), this.numberOfRooms, currentY, currentX);
 			this.currentMap = map.getMap();
+			increaseTime(200);
 			addCoins();
 			addStairs();
 		}
