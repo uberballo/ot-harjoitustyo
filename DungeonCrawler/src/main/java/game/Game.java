@@ -46,7 +46,7 @@ public class Game {
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
-		this.time = 1;
+		this.time = 1000;
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
 		this.random = new Random();
@@ -54,6 +54,25 @@ public class Game {
 		addCoins();
 		addStairs();
 
+	}
+	
+	/**
+	 * Constructor with default values.
+	 */
+	public Game(){
+		this.map = new Map(80, 80, 1, 40, 40);
+		this.currentMap = map.getMap();
+		this.currentY = 40;
+		this.currentX = 40;
+		this.currentMap[40][40] = 2;
+		this.totalScore = 0;
+		this.time = 1000;
+		this.amountOfCoins = 2 + 1;
+		this.numberOfRooms = 1;
+		this.random = new Random();
+		
+		addCoins();
+		addStairs();
 	}
 
 	/**

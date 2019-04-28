@@ -6,7 +6,7 @@
 package ui;
 
 import game.Game;
-import java.awt.event.WindowAdapter;
+import static java.lang.System.gc;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,7 +30,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 /**
  *
@@ -150,10 +151,12 @@ public class DungeonCrawlerUi extends Application {
 		Button button = new Button("Play");
 		grid.add(button, 1, 1);
 
+
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				stage.setScene(gameScene);
+				game.setTime(1000);
 			}
 		});
 
@@ -167,20 +170,35 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void endScreen(){
-		Canvas canvas = new Canvas(1280, 800);
+		game.setTime(1000);
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		
 
-		GraphicsContext gc = canvas.getGraphicsContext2D();
+		Label gameOverText = new Label();
+		gameOverText.setText("Game over");
+		gameOverText.setFont(new Font("Comic sans",35));
 		
-		gc.fillText("Rooms completed: "+(game.getRoomNumber()-1), 630, 450);
+		Label score = new Label();
+		score.setText("Rooms completed: "+(game.getRoomNumber()-1));
 		
-		gc.setFont(new Font("Comic sans", 35));
-		gc.fillText("Game over " , 600, 400);
-		
-		
-		this.root.getChildren().clear();
-		this.root.getChildren().add(canvas);
+		grid.add(gameOverText,0 ,0);
+		grid.add(score,0,1);
 		
 		
+		
+		Button button = new Button("Play again");
+		grid.add(button, 0, 2);
+
+		
+		button.setOnAction(e ->{
+			this.game = new Game();
+			this.stage.setScene(this.gameScene);
+		});
+		
+
+		Scene scene = new Scene(grid,1280,800);
+		this.stage.setScene(scene);
 	}
 
 	public void drawScreen() {
