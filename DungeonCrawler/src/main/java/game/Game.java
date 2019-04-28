@@ -27,10 +27,10 @@ public class Game {
 	private Random random;
 
 	/**
-	 * Game-class contains all the games functionality and information.
-	 * contains the object Map. On the map: 0 represents the walls. 1
-	 * represents the floors 2 represents the player. 3 represents the coins
-	 * 4 represents the stairs
+	 * Game-class contains all the games functionality and information. contains
+	 * the object Map. On the map: 0 represents the walls. 1 represents the
+	 * floors 2 represents the player. 3 represents the coins 4 represents the
+	 * stairs
 	 *
 	 * @param y Height of the map.
 	 * @param x Width of the map.
@@ -50,16 +50,16 @@ public class Game {
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
 		this.random = new Random();
-		
+
 		addCoins();
 		addStairs();
 
 	}
-	
+
 	/**
 	 * Constructor with default values.
 	 */
-	public Game(){
+	public Game() {
 		this.map = new Map(80, 80, 1, 40, 40);
 		this.currentMap = map.getMap();
 		this.currentY = 40;
@@ -70,7 +70,7 @@ public class Game {
 		this.amountOfCoins = 2 + 1;
 		this.numberOfRooms = 1;
 		this.random = new Random();
-		
+
 		addCoins();
 		addStairs();
 	}
@@ -114,10 +114,10 @@ public class Game {
 		}
 	}
 
-	public boolean checkIfGameIsOver(){
-		if (time<=0){
+	public boolean checkIfGameIsOver() {
+		if (time <= 0) {
 			return true;
-		} else{
+		} else {
 			return false;
 		}
 	}
@@ -130,12 +130,12 @@ public class Game {
 		this.time++;
 	}
 
-	public void increaseTime(int moreTime){
-		this.time+=moreTime;
+	public void increaseTime(int moreTime) {
+		this.time += moreTime;
 	}
 
 	public void decreaseTime() {
-		this.time -= 1*numberOfRooms;
+		this.time -= 1 * numberOfRooms;
 	}
 
 	public int[][] getMap() {
@@ -146,8 +146,7 @@ public class Game {
 		return this.time;
 	}
 
-
-	public int getRoomNumber(){
+	public int getRoomNumber() {
 		return this.numberOfRooms;
 	}
 

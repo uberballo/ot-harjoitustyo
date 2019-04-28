@@ -44,14 +44,21 @@ public class HighScoreDao {
 				+ "score integer \n"
 				+ ");";
 
-		 try (Connection conn = DriverManager.getConnection(url);
-                Statement stmt = conn.createStatement()) {
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+		try (Connection conn = DriverManager.getConnection(url);
+				Statement stmt = conn.createStatement()) {
+			stmt.execute(sql);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
+	/**
+	 * *
+	 * Takes name and score and adds it to the Database.
+	 *
+	 * @param name Players name
+	 * @param score Players score
+	 */
 	public void insert(String name, int score) {
 		String sql = "INSERT INTO highscore(name,score) VALUES(?,?)";
 		try (Connection conn = connect();
@@ -64,6 +71,12 @@ public class HighScoreDao {
 		}
 	}
 
+	/**
+	 * *
+	 * Return list of all the highscores. Doesn't include names.
+	 *
+	 * @return ArrayList<Integer>
+	 */
 	public ArrayList<Integer> getScores() {
 		ArrayList<Integer> scores = new ArrayList<>();
 		String sql = "SELECT score FROM highscore ORDER BY score DESC";

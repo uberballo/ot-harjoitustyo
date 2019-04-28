@@ -70,18 +70,17 @@ public class DungeonCrawlerUi extends Application {
 		int startY = 40;
 		int startX = 40;
 		this.game = new Game(this.mapHeight, this.mapWidth, rooms, startY, startX);
-		
+
 		//Decreases the score every second. 
 		this.timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask(){
+		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
-			public void run(){
+			public void run() {
 				game.decreaseTime();
 			}
-		},1000, 1000);
-		
-	}
+		}, 1000, 1000);
 
+	}
 
 	public void start(Stage stage) {
 		this.stage = stage;
@@ -126,15 +125,13 @@ public class DungeonCrawlerUi extends Application {
 					game.moveCharacterRight();
 					drawScreen();
 					input.remove(("D"));
-				}else{
+				} else {
 					drawScreen();
 				}
-				if(game.checkIfGameIsOver()){
+				if (game.checkIfGameIsOver()) {
 					endScreen();
 				}
 			}
-
-		
 
 		}.start();
 
@@ -155,12 +152,11 @@ public class DungeonCrawlerUi extends Application {
 		Button button = new Button("Play");
 		grid.add(button, 1, 1);
 
-
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				stage.setScene(gameScene);
-				game.setTime(1);
+				game.setTime(1000);
 			}
 		});
 
@@ -173,76 +169,75 @@ public class DungeonCrawlerUi extends Application {
 		drawScreen();
 	}
 
-	public void endScreen(){
+	public void endScreen() {
 		game.setTime(100000000);
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
-		
 
 		Label gameOverText = new Label();
 		gameOverText.setText("Game over");
-		gameOverText.setFont(new Font("Comic sans",35));
-		
+		gameOverText.setFont(new Font("Comic sans", 35));
+
 		Label score = new Label();
-		score.setText("Rooms completed: "+(game.getRoomNumber()-1));
-		
-		grid.add(gameOverText,0 ,0);
-		grid.add(score,0,1);
-		
+		score.setText("Rooms completed: " + (game.getRoomNumber() - 1));
+
+		grid.add(gameOverText, 0, 0);
+		grid.add(score, 0, 1);
+
 		HBox buttons = new HBox();
-		
-		Button playAgainButton= new Button("Play again");
-		
-		playAgainButton.setOnAction(e ->{
+
+		Button playAgainButton = new Button("Play again");
+
+		playAgainButton.setOnAction(e -> {
 			this.game = new Game();
 			this.stage.setScene(this.gameScene);
 		});
-		
+
 		Button saveScoreButton = new Button("Save your score");
 
-		saveScoreButton.setOnAction(e->{
-			this.highScoreDao.insert("temp", game.getRoomNumber()-1);
+		saveScoreButton.setOnAction(e -> {
+			this.highScoreDao.insert("temp", game.getRoomNumber() - 1);
 			showScoresScreen();
 		});
 
-		buttons.getChildren().addAll(playAgainButton,saveScoreButton);
+		buttons.getChildren().addAll(playAgainButton, saveScoreButton);
 		buttons.setSpacing(5);
-		
-		grid.add(buttons,0,2);
 
-		Scene scene = new Scene(grid,1280,800);
+		grid.add(buttons, 0, 2);
+
+		Scene scene = new Scene(grid, 1280, 800);
 		this.stage.setScene(scene);
 	}
 
-	public void showScoresScreen(){
+	public void showScoresScreen() {
 		ArrayList<Integer> list = highScoreDao.getScores();
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
-		
+
 		Label title = new Label();
 		title.setText("Scores");
 		grid.add(title, 0, 0);
 		int index = 1;
-		for(int score : list){
+		for (int score : list) {
 			Label text = new Label();
-			text.setText(index+". floor: "+score);
+			text.setText(index + ". floor: " + score);
 			grid.add(text, 0, index);
 			index++;
-			if (index>10){
+			if (index > 10) {
 				break;
 			}
 		}
 
-		Button playAgainButton= new Button("Play again");
-		
-		playAgainButton.setOnAction(e ->{
+		Button playAgainButton = new Button("Play again");
+
+		playAgainButton.setOnAction(e -> {
 			this.game = new Game();
 			this.stage.setScene(this.gameScene);
 		});
-		
-		grid.add(playAgainButton, 0 , index);
 
-		Scene scene = new Scene(grid,1280,800);
+		grid.add(playAgainButton, 0, index);
+
+		Scene scene = new Scene(grid, 1280, 800);
 		this.stage.setScene(scene);
 	}
 
@@ -280,14 +275,15 @@ public class DungeonCrawlerUi extends Application {
 		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
 		gc.fillText("Time: " + game.getTime(), 10, 40);
-		gc.fillText("Floor: " + game.getRoomNumber(),10,70);
+		gc.fillText("Floor: " + game.getRoomNumber(), 10, 70);
 
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
 	}
+
 	//When the window is closed, we turn of the timer.
 	@Override
-	public void stop(){
+	public void stop() {
 		this.timer.cancel();
 	}
 
