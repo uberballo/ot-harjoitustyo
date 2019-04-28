@@ -233,6 +233,15 @@ public class DungeonCrawlerUi extends Application {
 			}
 		}
 
+		Button playAgainButton= new Button("Play again");
+		
+		playAgainButton.setOnAction(e ->{
+			this.game = new Game();
+			this.stage.setScene(this.gameScene);
+		});
+		
+		grid.add(playAgainButton, 0 , index);
+
 		Scene scene = new Scene(grid,1280,800);
 		this.stage.setScene(scene);
 	}
