@@ -46,7 +46,7 @@ public class Game {
 		this.currentX = playerStartX;
 		this.currentMap[playerStartY][playerStartX] = 2;
 		this.totalScore = 0;
-		this.time = 1000;
+		this.time = 1;
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
 		this.random = new Random();
@@ -92,6 +92,14 @@ public class Game {
 					}
 				}
 			}
+		}
+	}
+
+	public boolean checkIfGameIsOver(){
+		if (time<=0){
+			return true;
+		} else{
+			return false;
 		}
 	}
 

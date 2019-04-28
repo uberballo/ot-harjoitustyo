@@ -124,6 +124,9 @@ public class DungeonCrawlerUi extends Application {
 				}else{
 					drawScreen();
 				}
+				if(game.checkIfGameIsOver()){
+					endScreen();
+				}
 			}
 
 		
@@ -161,6 +164,23 @@ public class DungeonCrawlerUi extends Application {
 		Scene scene = new Scene(this.root);
 		this.gameScene = scene;
 		drawScreen();
+	}
+
+	public void endScreen(){
+		Canvas canvas = new Canvas(1280, 800);
+
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		
+		gc.fillText("Rooms completed: "+(game.getRoomNumber()-1), 630, 450);
+		
+		gc.setFont(new Font("Comic sans", 35));
+		gc.fillText("Game over " , 600, 400);
+		
+		
+		this.root.getChildren().clear();
+		this.root.getChildren().add(canvas);
+		
+		
 	}
 
 	public void drawScreen() {
