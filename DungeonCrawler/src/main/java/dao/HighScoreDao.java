@@ -39,10 +39,10 @@ public class HighScoreDao {
 
 	private void createNewTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS highscore (\n"
-				+ "id integer PRIMARY KEY, \n"
-				+ "name text NOT NULL, \n"
-				+ "score integer \n"
-				+ ");";
+					 + "id integer PRIMARY KEY, \n"
+					 + "name text NOT NULL, \n"
+					 + "score integer \n"
+					 + ");";
 
 		try (Connection conn = DriverManager.getConnection(url);
 				Statement stmt = conn.createStatement()) {
@@ -75,7 +75,7 @@ public class HighScoreDao {
 	 * *
 	 * Return list of all the highscores. Doesn't include names.
 	 *
-	 * @return ArrayList<Integer>
+	 * @return list containing integers.
 	 */
 	public ArrayList<Integer> getScores() {
 		ArrayList<Integer> scores = new ArrayList<>();
