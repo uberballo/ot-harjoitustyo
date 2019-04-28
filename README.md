@@ -35,7 +35,7 @@ Test coverage report can be found from target/site/jacoco/index.html
 Checkstyle report can be generated with
 
 ```
-mavn jxr:jxr checkstyle:checkstyle
+mvn jxr:jxr checkstyle:checkstyle
 ```
 
 ### Generating .jar file
