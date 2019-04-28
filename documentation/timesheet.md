@@ -13,4 +13,5 @@
 |22.4|2|Refactoring and few functionalities|
 |23.4|1|Javadoc and more refactoring|
 |26.4|2|Functioning stairs and refactoring|
-|Total|19|
+|28.4|4|Added DB and usage of DB|
+|Total|23|
