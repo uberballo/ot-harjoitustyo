@@ -22,7 +22,7 @@ public class HighScoreDao {
 	private String url;
 
 	public HighScoreDao() {
-		this.url = "jdbc::sqlite:highscores.db";
+		this.url = "jdbc:sqlite:highscores.db";
 		createNewTable();
 	}
 
@@ -39,23 +39,23 @@ public class HighScoreDao {
 
 	private void createNewTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS highscore (\n"
-			+ "id integer PRIMARY KEY, \n"
-			+ "name text NOT NULL, \n"
-			+ "score integer \n"
-			+ ");";
+				+ "id integer PRIMARY KEY, \n"
+				+ "name text NOT NULL, \n"
+				+ "score integer \n"
+				+ ");";
 
-		try (Connection conn = DriverManager.getConnection(this.url);
-			Statement stmt = conn.createStatement()) {
-			stmt.execute(sql);
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
+		 try (Connection conn = DriverManager.getConnection(url);
+                Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 	}
 
 	public void insert(String name, int score) {
 		String sql = "INSERT INTO highscore(name,score) VALUES(?,?)";
 		try (Connection conn = connect();
-			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, name);
 			pstmt.setInt(2, score);
 			pstmt.executeUpdate();
@@ -66,10 +66,10 @@ public class HighScoreDao {
 
 	public ArrayList<Integer> getScores() {
 		ArrayList<Integer> scores = new ArrayList<>();
-		String sql = "SELECT score FROM highscore";
+		String sql = "SELECT score FROM highscore ORDER BY score DESC";
 		try (Connection conn = connect();
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(sql)) {
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
 
 			while (rs.next()) {
 				int value = rs.getInt("score");

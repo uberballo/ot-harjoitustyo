@@ -5,8 +5,8 @@
  */
 package ui;
 
+import dao.HighScoreDao;
 import game.Game;
-import static java.lang.System.gc;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,8 +22,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -54,11 +55,14 @@ public class DungeonCrawlerUi extends Application {
 
 	private Timer timer;
 
+	private HighScoreDao highScoreDao;
+
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	public DungeonCrawlerUi() {
+		this.highScoreDao = new HighScoreDao();
 		this.root = new Group();
 		this.mapHeight = 80;
 		this.mapWidth = 80;
@@ -156,7 +160,7 @@ public class DungeonCrawlerUi extends Application {
 			@Override
 			public void handle(ActionEvent e) {
 				stage.setScene(gameScene);
-				game.setTime(1000);
+				game.setTime(1);
 			}
 		});
 
@@ -170,7 +174,7 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void endScreen(){
-		game.setTime(1000);
+		game.setTime(100000000);
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 		
@@ -185,17 +189,49 @@ public class DungeonCrawlerUi extends Application {
 		grid.add(gameOverText,0 ,0);
 		grid.add(score,0,1);
 		
+		HBox buttons = new HBox();
 		
+		Button playAgainButton= new Button("Play again");
 		
-		Button button = new Button("Play again");
-		grid.add(button, 0, 2);
-
-		
-		button.setOnAction(e ->{
+		playAgainButton.setOnAction(e ->{
 			this.game = new Game();
 			this.stage.setScene(this.gameScene);
 		});
 		
+		Button saveScoreButton = new Button("Save your score");
+
+		saveScoreButton.setOnAction(e->{
+			this.highScoreDao.insert("temp", game.getRoomNumber()-1);
+			showScoresScreen();
+		});
+
+		buttons.getChildren().addAll(playAgainButton,saveScoreButton);
+		buttons.setSpacing(5);
+		
+		grid.add(buttons,0,2);
+
+		Scene scene = new Scene(grid,1280,800);
+		this.stage.setScene(scene);
+	}
+
+	public void showScoresScreen(){
+		ArrayList<Integer> list = highScoreDao.getScores();
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		
+		Label title = new Label();
+		title.setText("Scores");
+		grid.add(title, 0, 0);
+		int index = 1;
+		for(int score : list){
+			Label text = new Label();
+			text.setText(index+". floor: "+score);
+			grid.add(text, 0, index);
+			index++;
+			if (index>10){
+				break;
+			}
+		}
 
 		Scene scene = new Scene(grid,1280,800);
 		this.stage.setScene(scene);
@@ -235,7 +271,7 @@ public class DungeonCrawlerUi extends Application {
 		gc.setFont(new Font("Comic sans", 25));
 		gc.setFill(Color.WHITE);
 		gc.fillText("Time: " + game.getTime(), 10, 40);
-		gc.fillText("Room: " + game.getRoomNumber(),10,70);
+		gc.fillText("Floor: " + game.getRoomNumber(),10,70);
 
 		this.root.getChildren().clear();
 		this.root.getChildren().add(canvas);
