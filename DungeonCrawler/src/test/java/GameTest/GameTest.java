@@ -8,6 +8,7 @@ package GameTest;
 import game.Game;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -21,13 +22,16 @@ public class GameTest {
 	int y;
 	int x;
 	int rooms;
-
-	public GameTest() {
+	
+	@Before
+	public void setUp() {
 		y = 80;
 		x = 80;
 		rooms = 10;
 		this.game = new Game(y, x, rooms, y / 2, x / 2);
 	}
+	
+	
 
 	@Test
 	public void movementDecreasesTime() {
@@ -37,5 +41,32 @@ public class GameTest {
 		game.moveCharacterDown();
 
 		Assert.assertNotEquals(game.getTime(),1000);
+	}
+
+	@Test
+	public void characterMovesOnTheMap(){
+		int locationBeforeMovementX = game.getCurrentX();
+		int locationBeforeMovementY = game.getCurrentY();
+		game.moveCharacterDown();
+		game.moveCharacterRight();
+		Assert.assertNotEquals(game.getCurrentX(), locationBeforeMovementX);
+		Assert.assertNotEquals(game.getCurrentY(), locationBeforeMovementY);
+	}
+
+	@Test
+	public void characterMovesOnTheMapSecond(){
+		int locationBeforeMovementX = game.getCurrentX();
+		int locationBeforeMovementY = game.getCurrentY();
+		game.moveCharacterDown();
+		game.moveCharacterRight();
+		game.moveCharacterUp();
+		game.moveCharacterLeft();
+		Assert.assertEquals(game.getCurrentX(), locationBeforeMovementX);
+		Assert.assertEquals(game.getCurrentY(), locationBeforeMovementY);
+	}
+
+	@Test
+	public void gameIsNotOverWhenJustStarted(){
+		Assert.assertEquals(game.checkIfGameIsOver(), false);
 	}
 }

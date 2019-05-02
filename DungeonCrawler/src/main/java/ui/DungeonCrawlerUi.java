@@ -8,6 +8,7 @@ package ui;
 import dao.HighScoreDao;
 import game.Game;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.AnimationTimer;
@@ -105,10 +106,14 @@ public class DungeonCrawlerUi extends Application {
 			input.remove(code);
 		});
 
+
 		new AnimationTimer() {
 
 			@Override
 			public void handle(long nykyhetki) {
+				for (String i : input){
+					System.out.println(i);
+				}
 				if (input.contains("W")) {
 					game.moveCharacterUp();
 					drawScreen();

@@ -28,10 +28,10 @@ public class Game {
 	private Random random;
 
 	/**
-	 * Game-class contains all the games functionality and information. contains
-	 * the object Map. On the map: 0 represents the walls. 1 represents the
-	 * floors 2 represents the player. 3 represents the coins 4 represents the
-	 * stairs
+	 * Game-class contains all the games functionality and information.
+	 * contains the object Map. On the map: 0 represents the walls. 1
+	 * represents the floors 2 represents the player. 3 represents the coins
+	 * 4 represents the stairs
 	 *
 	 * @param y Height of the map.
 	 * @param x Width of the map.
@@ -72,7 +72,6 @@ public class Game {
 		this.amountOfCoins = 2 + 1;
 		this.numberOfRooms = 1;
 		this.random = new Random();
-
 
 		addCoins();
 		addStairs();
@@ -149,13 +148,20 @@ public class Game {
 		return this.currentMap;
 	}
 
-
 	public int getRoomNumber() {
 		return this.numberOfRooms;
 	}
 
 	public void printLocation() {
 		System.out.println("Current x, y :" + currentX + " " + currentY);
+	}
+	
+	public int getCurrentX() {
+		return this.currentX;
+	}
+
+	public int getCurrentY() {
+		return this.currentY;
 	}
 
 	public void checkPosition() {

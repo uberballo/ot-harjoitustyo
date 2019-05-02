@@ -26,6 +26,11 @@ public class HighScoreDao {
 		createNewTable();
 	}
 
+	public HighScoreDao(String name) {
+		this.url = "jdbc:sqlite:"+name+".db";
+		createNewTable();
+	}
+
 	private Connection connect() {
 		Connection conn = null;
 		try {
