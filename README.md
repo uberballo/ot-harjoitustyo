@@ -8,6 +8,7 @@ Dungeon crawler-like game. Game where the player has to navigate trough procedur
 [Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)
 
 ## Releases
+[Week 6](https://github.com/uberballo/ot-harjoitustyo/releases/tag/Viikko6)  
 [Week 5](https://github.com/uberballo/ot-harjoitustyo/releases/tag/viikko5)  
 
 ## Command line functions
