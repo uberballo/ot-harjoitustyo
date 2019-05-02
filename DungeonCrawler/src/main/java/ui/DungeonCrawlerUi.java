@@ -24,7 +24,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -38,11 +37,11 @@ import javafx.stage.Stage;
  */
 public class DungeonCrawlerUi extends Application {
 
-	//private int[][] currentMap;
 	private Stage stage;
 	private Game game;
 	private int mapHeight;
 	private int mapWidth;
+	private boolean gameIsRunning = false;
 	private Scene gameScene;
 	private Group root;
 
@@ -54,7 +53,6 @@ public class DungeonCrawlerUi extends Application {
 	private Image stairs = new Image("stairs.png");
 
 	private Timer timer;
-
 	private HighScoreDao highScoreDao;
 
 	public static void main(String[] args) {
@@ -76,7 +74,9 @@ public class DungeonCrawlerUi extends Application {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				game.decreaseTime();
+				if (gameIsRunning) {
+					game.decreaseTime();
+				}
 			}
 		}, 1000, 1000);
 
@@ -129,6 +129,7 @@ public class DungeonCrawlerUi extends Application {
 					drawScreen();
 				}
 				if (game.checkIfGameIsOver()) {
+					gameIsRunning = false;
 					endScreen();
 				}
 			}
@@ -155,8 +156,8 @@ public class DungeonCrawlerUi extends Application {
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
+				gameIsRunning = true;
 				stage.setScene(gameScene);
-				game.setTime(1000);
 			}
 		});
 
@@ -170,7 +171,7 @@ public class DungeonCrawlerUi extends Application {
 	}
 
 	public void endScreen() {
-		game.setTime(100000000);
+		this.game.setTime(100000);
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 
@@ -191,6 +192,10 @@ public class DungeonCrawlerUi extends Application {
 		playAgainButton.setOnAction(e -> {
 			this.game = new Game();
 			this.stage.setScene(this.gameScene);
+			gameIsRunning = true;
+			this.game.setTime(1000);
+			start(this.stage);
+			
 		});
 
 		Button saveScoreButton = new Button("Save your score");
@@ -233,6 +238,8 @@ public class DungeonCrawlerUi extends Application {
 		playAgainButton.setOnAction(e -> {
 			this.game = new Game();
 			this.stage.setScene(this.gameScene);
+			gameIsRunning = true;
+			this.game.setTime(1000);
 		});
 
 		grid.add(playAgainButton, 0, index);

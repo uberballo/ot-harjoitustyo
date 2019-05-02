@@ -18,12 +18,13 @@ public class Game {
 
 	private int currentY;
 	private int currentX;
-	private Map map;
 	private int[][] currentMap;
 	private int totalScore;
 	private int time;
 	private int amountOfCoins;
 	private int numberOfRooms;
+	private int coinValue;
+	private Map map;
 	private Random random;
 
 	/**
@@ -49,6 +50,7 @@ public class Game {
 		this.time = 1000;
 		this.amountOfCoins = 2 + rooms;
 		this.numberOfRooms = rooms;
+		this.coinValue = 100;
 		this.random = new Random();
 
 		addCoins();
@@ -70,6 +72,7 @@ public class Game {
 		this.amountOfCoins = 2 + 1;
 		this.numberOfRooms = 1;
 		this.random = new Random();
+
 
 		addCoins();
 		addStairs();
@@ -138,13 +141,14 @@ public class Game {
 		this.time -= 1 * numberOfRooms;
 	}
 
+	public int getTime() {
+		return this.time;
+	}
+
 	public int[][] getMap() {
 		return this.currentMap;
 	}
 
-	public int getTime() {
-		return this.time;
-	}
 
 	public int getRoomNumber() {
 		return this.numberOfRooms;
@@ -156,7 +160,7 @@ public class Game {
 
 	public void checkPosition() {
 		if (currentMap[currentY][currentX] == 3) {
-			this.time += 100;
+			this.time += coinValue;
 		} else if (currentMap[currentY][currentX] == 4) {
 
 			//Make a new map here, increase number of rooms by 1 and number of coins by 1
@@ -167,20 +171,6 @@ public class Game {
 			increaseTime(200);
 			addCoins();
 			addStairs();
-		}
-	}
-
-	//Currently not working. 
-	public void moveCharacter(String direction) {
-		switch (direction) {
-			case ("W"):
-				if (currentMap[currentY][currentX - 1] == 1) {
-					currentX--;
-					currentMap[currentY][currentX] = 2;
-					currentMap[currentY][currentX + 1] = 1;
-					decreaseTime();
-				}
-
 		}
 	}
 

@@ -23,9 +23,10 @@ public class MapCreator {
 	private Room[] rooms;
 
 	/**
-	 * Produces rooms randomly. After the first room is created, we randomly add
-	 * a corridor to the last made room. Repeat that process until we have
-	 * correct amount of rooms. 1 represents floor and 0 represents wall.
+	 * Produces rooms randomly. After the first room is created, we randomly
+	 * add a corridor to the last made room. Repeat that process until we
+	 * have correct amount of rooms. 1 represents floor and 0 represents
+	 * wall.
 	 *
 	 *
 	 * @param y Height of the map.
@@ -47,7 +48,7 @@ public class MapCreator {
 			}
 		}
 		//We make the first starting room and place it to the lastRoom variable to save space.
-		this.lastRoom = createRoom(playerStartY, playerStartX, 4, 4);
+		this.lastRoom = new Room(playerStartY, playerStartX, 4, 4);
 		rooms = new Room[numberOfRooms + 1];
 		rooms[0] = lastRoom;
 		//We add the first room to the map.
@@ -64,7 +65,7 @@ public class MapCreator {
 		return this.map;
 	}
 
-	public void print() {
+	public void printMap() {
 		for (int i = 0; i < y; i++) {
 			for (int i2 = 0; i2 < x; i2++) {
 				System.out.print(map[i][i2]);
@@ -93,7 +94,7 @@ public class MapCreator {
 			if (x1 > 10) {
 				x1 = 10;
 			}
-			Room newRoom = createRoom(y, x, x1, x1);
+			Room newRoom = new Room(y, x, x1, x1);
 
 			if (addRoom(newRoom)) {
 				rooms[now] = newRoom;
@@ -104,23 +105,8 @@ public class MapCreator {
 
 	/**
 	 * *
-	 * produces a new Room object.
-	 *
-	 * @param y Starting location of the room on Y axel.
-	 * @param x Starting location of the room on Y axel.
-	 * @param height rooms height.
-	 * @param width rooms width.
-	 *
-	 * @return New room object.
-	 */
-	public Room createRoom(int y, int x, int height, int width) {
-		return new Room(y, x, height, width);
-	}
-
-	/**
-	 * *
-	 * Tries to add a new room to the arrays "Map" and "Rooms" and connects the
-	 * new room with the last room made.
+	 * Tries to add a new room to the arrays "Map" and "Rooms" and connects
+	 * the new room with the last room made.
 	 *
 	 * @param newRoom new room to add.
 	 *
@@ -160,9 +146,9 @@ public class MapCreator {
 
 	/**
 	 * *
-	 * Produces a vertical tunnel. Used by the addRoom function. To ensure the
-	 * tunnel connects to the rooms and the for-loop works, we use Math.min()
-	 * and Math.Max() to go in ascending order.
+	 * Produces a vertical tunnel. Used by the addRoom function. To ensure
+	 * the tunnel connects to the rooms and the for-loop works, we use
+	 * Math.min() and Math.Max() to go in ascending order.
 	 *
 	 * @param y1 Last rooms starting position on Y axel.
 	 * @param y2 New rooms starting position on Y axel.
@@ -176,9 +162,9 @@ public class MapCreator {
 
 	/**
 	 * *
-	 * Produces a horizontal tunnel. Used by the addRoom function. To ensure the
-	 * tunnel connects to the rooms and the for-loop works, we use Math.min()
-	 * and Math.Max() to go in ascending order.
+	 * Produces a horizontal tunnel. Used by the addRoom function. To ensure
+	 * the tunnel connects to the rooms and the for-loop works, we use
+	 * Math.min() and Math.Max() to go in ascending order.
 	 *
 	 * @param x1 Last rooms starting position on X axel.
 	 * @param x2 New rooms starting position on X axel.
