@@ -1,6 +1,10 @@
 # Dungeon crawler-like 
 
-Dungeon crawler-like game. Game where the player has to navigate trough procedurally generated map. Avoiding obstacles and collecting prizes along the way.
+Dungeon crawler-like game. Game where the player has to navigate trough procedurally generated map. Avoiding obstacles and collecting coins along the way. You have to think quickly and find the stair to the next floor quickly, as the time is running out and every step costs more time as you move on. Coins give you more time, but is it worth to collect all of them?  
+
+## How to use  
+Start by installing the software by using command line functions found below or by running the jar file.  
+From the starting screen, when you're ready to start playing, press the start button. You control your character by using WASD-keys. After the time runs out, you have choice to save your score or not.  
 
 ## Documentation 
 [Timesheet](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/timesheet.md)  
@@ -45,7 +49,13 @@ command
 ```
 mvn package
 ```
-generates executable .jar file to the _target_ folder. You may have to give permission to execute the file.
+generates executable .jar file to the _target_ folder. You may have to give permission to execute the file.   
+
+Run the file by using:  
+```
+java -jar DungeonCrawler-1.1-SNAPSHOT.jar
+```
+
 
 ## Javadoc  
 Javadoc can be made with 
