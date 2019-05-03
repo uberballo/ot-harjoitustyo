@@ -10,7 +10,7 @@ Not implemented.
 Users need to log in to save their results. When clicked log in, ui calls the function login. Loginservice fetches the username and returns user if found. If the user is found, loginService returns true and thus, user is set to logged in.
 
 ### Character movement
-<img src="">  
+<img src="https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/pictures/Character%20movement.png">  
 After the user presses play, the game starts to listen for their actions. If player presses "W", it will call class `game` and moves the character up. When moved, game checks the characters position, if there are anything that would affect the game, for example: a coin that will give you 100 more time. DungeonCrawlerUi checks if the game has ended by using game.checkIfGameIsOver(), and if it receives true, game ends and endScreen() is called. 
 
 ### Starting the game
