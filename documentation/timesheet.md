@@ -16,4 +16,5 @@
 |28.4|4|Added DB and usage of DB|
 |1.5|1|Cleaning code|
 |2.5|1|Adding tests|
-|Total|25|
+|5.5|1|Fixing bugs|
+|Total|26|
