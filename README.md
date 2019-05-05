@@ -12,7 +12,7 @@ From the starting screen, when you're ready to start playing, press the start bu
 [Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)
 
 ## Releases
-[Final week](https://github.com/uberballo/ot-harjoitustyo/releases/tag/FinalWeek)
+[Final week](https://github.com/uberballo/ot-harjoitustyo/releases/tag/FinalWeek)  
 [Week 6](https://github.com/uberballo/ot-harjoitustyo/releases/tag/Viikko6)  
 [Week 5](https://github.com/uberballo/ot-harjoitustyo/releases/tag/viikko5)  
 
