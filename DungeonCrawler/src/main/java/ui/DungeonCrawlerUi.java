@@ -112,7 +112,6 @@ public class DungeonCrawlerUi extends Application {
 			@Override
 			public void handle(long nykyhetki) {
 				for (String i : input){
-					System.out.println(i);
 				}
 				if (input.contains("W")) {
 					game.moveCharacterUp();
