@@ -9,7 +9,7 @@ From the starting screen, when you're ready to start playing, press the start bu
 ## Documentation 
 [Timesheet](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/timesheet.md)  
 [Software requirements specification](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/SoftwareRequirementsSpecifications.md)  
-[Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)
+[Architecture](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Architecture.md)  
 [Test documentation](https://github.com/uberballo/ot-harjoitustyo/blob/master/documentation/Testing.md)
 
 ## Releases
